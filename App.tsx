@@ -1,61 +1,48 @@
 import styled from 'styled-components/native';
-import Button from './src/modules/global/components/Button';
+import Header from './src/modules/global/components/Header';
+import Banner from './src/modules/global/components/Banner';
 
 export const Container = styled.View`
 	flex: 1;
-	background-color: #fff;
-`;
-
-export const TextWelcome = styled.Text`
-	color: #000;
-	font-size: 20px;
-	font-weight: bold;
-`;
-
-export const LabelWelcome = styled.Text`
-	color: #000;
-	font-size: 18px;
-	margin-bottom: 100px;
-`;
-
-export const Content = styled.View`
-	flex: 1;
-`;
-
-export const ContentTexts = styled.View`
 	align-items: center;
-	margin-top: 20px;
-`;
-export const ContentButton = styled.View`
-	flex: 1;
+	/* justify-content: center; */
+	background-color: white;
+
 	padding: 16px;
+	margin-top: 54px;
 `;
 
-export const Image = styled.Image``;
+export const ContentBanner = styled.View`
+	height: auto;
+	width: 100%;
+
+	padding: 16px;
+	border-radius: 12px;
+
+	background-color: #f3f3f3;
+`;
+
+export const TitleBanner = styled.Text`
+	color: #121214;
+	font-size: 18px;
+	font-weight: bold;
+
+	margin-bottom: 8px;
+`;
+
+export const MessageBanner = styled.Text`
+	color: #121214;
+	font-size: 14px;
+`;
 
 export default function App() {
 	return (
 		<Container>
-			<Image
-				style={{
-					height: '70%',
-					width: '100%',
-					resizeMode: 'cover',
-					backgroundColor: 'gray',
-					borderRadius: 25,
-				}}
-				source={require('./src/assets/images/welcome.jpg')}
-			/>
-			<Content>
-				<ContentTexts>
-					<TextWelcome>Seja bem-vindo ao URI App</TextWelcome>
-					<LabelWelcome> Sentir-se seguro é para todos!</LabelWelcome>
-				</ContentTexts>
-
-				<ContentButton>
-					<Button />
-				</ContentButton>
-			</Content>
+			<Header />
+			<Banner />
+			<Banner />
+			<Banner />
+			<Banner />
 		</Container>
 	);
 }

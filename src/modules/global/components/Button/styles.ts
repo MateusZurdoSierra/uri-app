@@ -5,7 +5,7 @@ export const Container = styled.TouchableOpacity`
 	width: 100%;
 
 	border-radius: 5px;
-	background-color: #000;
+	background-color: black;
 	align-items: center;
 	justify-content: center;
 `;
