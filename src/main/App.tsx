@@ -4,7 +4,7 @@ import NetInfo from '@react-native-community/netinfo';
 import { useDispatch } from 'react-redux';
 import { NetworkActions } from '../infra/network';
 import RootRoutes from './navigation';
-import Welcome from '../presentation/screens/Welcome';
+import Welcome from '../presentation/screens/onboarding/Welcome';
 
 export default function MyApp() {
 	// const dispatch = useDispatch();
@@ -17,6 +17,5 @@ export default function MyApp() {
 	// 	return unsubscribe;
 	// });
 
-	// return <Welcome />
 	return <RootRoutes />;
 }

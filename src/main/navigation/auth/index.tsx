@@ -1,18 +1,18 @@
+import React from 'react';
+
 import {
 	createStackNavigator,
 	TransitionPresets,
 } from '@react-navigation/stack';
 
-import React from 'react';
-
-import Welcome from '../../../presentation/screens/Welcome';
+import Welcome from '../../../presentation/screens/onboarding/Welcome';
 
 export enum AuthScreensNavigations {
-	home = 'HomeScreen',
+	login = 'LoginScreen',
 }
 
 export type AuthNavigatorParamList = {
-	[AuthScreensNavigations.home]: undefined;
+	[AuthScreensNavigations.login]: undefined;
 };
 
 export default () => {
@@ -26,9 +26,9 @@ export default () => {
 				headerTitleAlign: 'center',
 				headerShown: false,
 			}}
-			initialRouteName={AuthScreensNavigations.home}>
+			initialRouteName={AuthScreensNavigations.login}>
 			<AuthNavigator.Screen
-				name={AuthScreensNavigations.home}
+				name={AuthScreensNavigations.login}
 				component={Welcome}
 				options={{ title: '' }}
 			/>

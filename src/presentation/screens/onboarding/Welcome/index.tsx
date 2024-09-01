@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../../../modules/global/components/Button';
+import Button from '../../../../modules/global/components/Button';
 
 import {
 	Container,
@@ -11,6 +11,8 @@ import {
 	LabelWelcome,
 	TextWelcome,
 } from './styles';
+import { Navigator } from '../../../../modules/global/utils/rootNavigations';
+import { ScreensNameRoot } from '../../../../main/navigation';
 
 const Welcome: React.FC = () => {
 	return (
@@ -24,7 +26,7 @@ const Welcome: React.FC = () => {
 						backgroundColor: 'gray',
 						borderRadius: 25,
 					}}
-					source={require('../../../assets/images/welcome.jpg')}
+					source={require('../../../../assets/images/welcome.jpg')}
 				/>
 
 				<ContentTexts>
@@ -33,7 +35,7 @@ const Welcome: React.FC = () => {
 				</ContentTexts>
 
 				<ContentButton>
-					<Button />
+					<Button onPress={() => Navigator.navigate(ScreensNameRoot.home)} />
 				</ContentButton>
 			</Content>
 		</Container>
