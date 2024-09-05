@@ -2,18 +2,20 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
 	flex: 1;
-	background-color: #fff;
+	background-color: ${({ theme }) => theme.colors.white};
 `;
 export const Image = styled.Image``;
 
 export const TextWelcome = styled.Text`
-	color: #121214;
+	font-family: ${({ theme }) => theme.font.bold};
+	color: ${({ theme }) => theme.colors.black};
 	font-size: 24px;
 	font-weight: bold;
 `;
 
 export const LabelWelcome = styled.Text`
-	color: #121214;
+	font-family: ${({ theme }) => theme.font.regular};
+	color: ${({ theme }) => theme.colors.black};
 	font-size: 18px;
 	margin-bottom: 100px;
 `;

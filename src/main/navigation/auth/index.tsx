@@ -5,7 +5,7 @@ import {
 	TransitionPresets,
 } from '@react-navigation/stack';
 
-import Welcome from '../../../presentation/screens/onboarding/Welcome';
+import Login from '../../../presentation/screens/auth/Login';
 
 export enum AuthScreensNavigations {
 	login = 'LoginScreen',
@@ -29,7 +29,7 @@ export default () => {
 			initialRouteName={AuthScreensNavigations.login}>
 			<AuthNavigator.Screen
 				name={AuthScreensNavigations.login}
-				component={Welcome}
+				component={Login}
 				options={{ title: '' }}
 			/>
 		</AuthNavigator.Navigator>

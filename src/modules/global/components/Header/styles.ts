@@ -11,14 +11,16 @@ export const ContentHeader = styled.View`
 export const ContentText = styled.View``;
 
 export const TitleHeader = styled.Text`
-	color: #121214;
+	font-family: ${({theme}) => theme.font.regular};
+	color: ${({ theme }) => theme.colors.black};
 	font-size: 18px;
 	font-weight: bold;
 	margin-left: 16px;
 `;
 
 export const LabelHeader = styled.Text`
-	color: #121214;
+	font-family: ${({theme}) => theme.font.regular};
+	color: ${({ theme }) => theme.colors.black};
 	font-size: 14px;
 	margin-left: 16px;
 `;

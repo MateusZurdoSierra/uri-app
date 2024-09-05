@@ -7,19 +7,20 @@ export const ContentBanner = styled.View`
 	padding: 16px;
 	border-radius: 12px;
 
-	background-color: #f3f3f3;
+	background-color: ${({theme}) => theme.colors.white};
 	margin-top: 24px;
 `;
 
 export const TitleBanner = styled.Text`
-	color: #121214;
+	font-family: ${({theme}) => theme.font.semibold};
+	color: ${({theme}) => theme.colors.black};
 	font-size: 18px;
-	font-weight: bold;
 
 	margin-bottom: 8px;
 `;
 
 export const MessageBanner = styled.Text`
-	color: #121214;
+	font-family: ${({theme}) => theme.font.regular};
+	color: ${({theme}) => theme.colors.black};
 	font-size: 14px;
 `;

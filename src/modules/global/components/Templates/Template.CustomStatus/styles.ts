@@ -6,7 +6,7 @@ import { ThemeStyledComponent } from '~/main/styles/theme';
 
 export const ContainerSafeArea = styled.SafeAreaView`
 	flex: 1;
-	background: ${({ theme }: ThemeStyledComponent) => theme.color.white};
+	background: ${({ theme }: ThemeStyledComponent) => theme.colors.white};
 `;
 
 export const Container = styled.View`

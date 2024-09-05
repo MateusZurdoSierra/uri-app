@@ -1,23 +1,29 @@
 import styled from 'styled-components/native';
 
+interface StyleProps {
+	selected?: boolean;
+}
+
 export const InputContainer = styled.View`
 	margin-top: 16px;
 	width: 100%;
 `;
 
-export const InputComponent = styled.TextInput`
+export const InputComponent = styled.TextInput<StyleProps>`
 	height: 54px;
 
 	border-width: 2px;
-	border-color: #00a3b9;
+	border-color: ${({ theme, selected }) =>
+		selected ? theme.colors.primary : theme.colors.lines};
 	border-radius: 5px;
 	padding: 0px 16px;
-	color: #595959;
+	color: ${({ theme }) => theme.colors.lines};
 	font-size: 14px;
 `;
 
 export const DescriptionInput = styled.Text`
-	color: #121214;
+	font-family: ${({ theme }) => theme.font.bold};
+	color: ${({ theme }) => theme.colors.black};
 	font-size: 14px;
 	font-weight: bold;
 

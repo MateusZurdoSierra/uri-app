@@ -1,12 +1,19 @@
 import React from 'react';
 
 import { DescriptionInput, InputComponent, InputContainer } from './styles';
+import { TextInputProps } from 'react-native';
 
-const Input: React.FC = () => {
+interface InputProps extends TextInputProps {
+	description: string;
+	value: string;
+	selected?: boolean;
+}
+
+const Input: React.FC<InputProps> = ({ description, value, selected }) => {
 	return (
 		<InputContainer>
-			<DescriptionInput>Nome completo</DescriptionInput>
-			<InputComponent value="Insira seu nome" />
+			<DescriptionInput>{description}</DescriptionInput>
+			<InputComponent value={value} selected={selected} />
 		</InputContainer>
 	);
 };
