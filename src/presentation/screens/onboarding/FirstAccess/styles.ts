@@ -1,20 +1,32 @@
 import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 
+export const Container = styled.View`
+    flex: 1;
+    padding: 16px;
+    background-color: ${({ theme }) => theme.colors.white};
+`;
+
+export const Title = styled.Text`
+    font-size: 24px;
+    margin-bottom: 16px;
+    width: 354px;
+    position: 'absolute';
+    top: 142px;
+    left: 20px;
+`;
+export const Subtitle = styled.Text`
+    font-size: 16px;
+    margin-bottom: 24px;
+    width: 354px;
+    height: 88px;
+    position: 'absolute';
+    top: 125px;
+    left: 20px;
+`;
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 16,
-        backgroundColor: '#fff',
-    },
-    h1: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 16,
-        width: 354,
-        position: 'absolute',
-        top: 142,
-        left: 20,
-    },
+
+    
     paragraph: {
         fontSize: 16,
         marginBottom: 24,

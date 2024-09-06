@@ -52,7 +52,7 @@ const renderNavigations = navigations.map(
 const RootRoutes: React.FC = () => {
 	return (
 		<Stack.Navigator
-			initialRouteName={ScreensNameRoot.auth}
+			initialRouteName={ScreensNameRoot.onboarding}
 			screenOptions={{
 				headerShown: false,
 				animationEnabled: true,

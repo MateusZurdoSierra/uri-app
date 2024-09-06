@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
-import styles from './styles';
+import styles, { Container, Title, Subtitle } from './styles';
 
 const FirstAccess: React.FC = () => {
 	const [fullName, setFullName] = useState<string>('');
@@ -13,11 +13,11 @@ const FirstAccess: React.FC = () => {
 	};
 
 	return (
-		<View style={styles.container}>
-			<Text style={styles.h1}>Primeiros Passos</Text>
-			<Text style={styles.paragraph}>
-				Precisamos de algumas informações para garantir a sua segurança e verificar se o seu bairro está cadastrado no Uri.
-			</Text>
+		<Container>
+			<Title>Primeiros Passos</Title>
+			<Subtitle>Precisamos de algumas informações para garantir a sua segurança e verificar se o seu bairro está cadastrado no Uri.
+			</Subtitle>
+
 
 
 			<Text style={styles.label}>Nome Completo</Text>
@@ -56,7 +56,7 @@ const FirstAccess: React.FC = () => {
 			/>
 
 			<Button title="Enviar" onPress={handleSubmit} />
-		</View>
+		</Container>
 	);
 };
 

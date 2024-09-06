@@ -6,13 +6,16 @@ import {
 } from '@react-navigation/stack';
 
 import Welcome from '../../../presentation/screens/onboarding/Welcome';
+import FirstAccess from '../../../presentation/screens/onboarding/FirstAccess';
 
 export enum OnboardingScreensNavigations {
 	onboarding = 'OnboardingScreen',
+	firstAccess = 'FirstAccessScreen',
 }
 
 export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.onboarding]: undefined;
+	[OnboardingScreensNavigations.firstAccess]: undefined;
 };
 
 export default () => {
@@ -27,10 +30,10 @@ export default () => {
 				headerTitleAlign: 'center',
 				headerShown: false,
 			}}
-			initialRouteName={OnboardingScreensNavigations.onboarding}>
+			initialRouteName={OnboardingScreensNavigations.firstAccess}>
 			<OnboardingNavigator.Screen
-				name={OnboardingScreensNavigations.onboarding}
-				component={Welcome}
+				name={OnboardingScreensNavigations.firstAccess}
+				component={FirstAccess}
 				options={{ title: '' }}
 			/>
 		</OnboardingNavigator.Navigator>
