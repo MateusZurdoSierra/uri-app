@@ -1,61 +1,39 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
-import styles, { Container, Title, Subtitle } from './styles';
+import Input from '../../../../modules/global/components/Input';
+import Button from '../../../../modules/global/components/Button';
+
+import { Container, Title, Subtitle, ContentText, Footer } from './styles';
 
 const FirstAccess: React.FC = () => {
-	const [fullName, setFullName] = useState<string>('');
-	const [phone, setPhone] = useState<string>('');
-	const [email, setEmail] = useState<string>('');
-	const [zipCode, setZipCode] = useState<string>('');
-
-	const handleSubmit = () => {
-		console.log({ fullName, phone, email, zipCode });
-	};
+	const [fullName, setFullName] = useState<string>(
+		'Digite o seu nome completo',
+	);
+	const [phone, setPhone] = useState<string>('Digite o seu número de celular');
+	const [email, setEmail] = useState<string>('Insira o seu e-mail principal');
+	const [zipCode, setZipCode] = useState<string>('Digite o CEP da sua rua');
 
 	return (
 		<Container>
-			<Title>Primeiros Passos</Title>
-			<Subtitle>Precisamos de algumas informações para garantir a sua segurança e verificar se o seu bairro está cadastrado no Uri.
-			</Subtitle>
+			<ContentText>
+				<Title>Vamos começar</Title>
+				<Subtitle>
+					Precisamos de algumas informações para garantir sua segurança e
+					verificar se seu bairro está cadastrado no Uri.
+				</Subtitle>
+			</ContentText>
 
-
-
-			<Text style={styles.label}>Nome Completo</Text>
-			<TextInput
-				style={styles.input}
-				placeholder="Digite seu nome completo"
+			<Input
+				description="Nome"
 				value={fullName}
-				onChangeText={setFullName}
+				onChangeText={text => setFullName(text)}
 			/>
+			<Input description="Telefone" value={phone} />
+			<Input description="E-mail" value={email} />
+			<Input description="CEP" value={zipCode} />
 
-			<Text style={styles.label}>Telefone</Text>
-			<TextInput
-				style={styles.input}
-				placeholder="Digite seu telefone"
-				value={phone}
-				onChangeText={setPhone}
-				keyboardType="phone-pad"
-			/>
-
-			<Text style={styles.label}>Email</Text>
-			<TextInput
-				style={styles.input}
-				placeholder="Digite seu email"
-				value={email}
-				onChangeText={setEmail}
-				keyboardType="email-address"
-			/>
-
-			<Text style={styles.label}>CEP</Text>
-			<TextInput
-				style={styles.input}
-				placeholder="Digite seu CEP"
-				value={zipCode}
-				onChangeText={setZipCode}
-				keyboardType="numeric"
-			/>
-
-			<Button title="Enviar" onPress={handleSubmit} />
+			<Footer>
+				<Button text="Começar" onPress={() => {}} />
+			</Footer>
 		</Container>
 	);
 };
