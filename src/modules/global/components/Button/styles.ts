@@ -10,7 +10,7 @@ export const Container = styled.TouchableOpacity<StyleProps>`
 	width: 100%;
 
 	border-radius: 30px;
-	border-width: 1px solid;
+	border-width: 1px;
 	border-color: ${({ theme }) => theme.colors.primary};
 	background-color: ${({ theme, typeButton }) =>
 		typeButton === TypeButton.OUTLINE

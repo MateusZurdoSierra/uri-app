@@ -7,13 +7,23 @@ interface InputProps extends TextInputProps {
 	description: string;
 	value: string;
 	selected?: boolean;
+	onChangeText?: (text: string) => void;
 }
 
-const Input: React.FC<InputProps> = ({ description, value, selected }) => {
+const Input: React.FC<InputProps> = ({
+	description,
+	value,
+	selected,
+	onChangeText,
+}) => {
 	return (
 		<InputContainer>
 			<DescriptionInput>{description}</DescriptionInput>
-			<InputComponent value={value} selected={selected} />
+			<InputComponent
+				value={value}
+				selected={selected}
+				onChangeText={onChangeText}
+			/>
 		</InputContainer>
 	);
 };
