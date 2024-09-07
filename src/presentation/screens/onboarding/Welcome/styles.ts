@@ -17,16 +17,15 @@ export const LabelWelcome = styled.Text`
 	font-family: ${({ theme }) => theme.font.regular};
 	color: ${({ theme }) => theme.colors.black};
 	font-size: 18px;
-	margin-bottom: 100px;
 `;
 
 export const Content = styled.View`
 	flex: 1;
+	padding: 16px;
 `;
 
 export const ContentTexts = styled.View`
 	align-items: center;
-	margin-top: 20px;
 `;
 export const ContentButton = styled.View`
 	padding: 0px 16px 16px 16px;

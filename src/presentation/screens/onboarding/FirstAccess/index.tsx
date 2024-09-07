@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Input from '../../../../modules/global/components/Input';
 import Button from '../../../../modules/global/components/Button';
 
-import { Container, Title, Subtitle, ContentText, Footer } from './styles';
+import { Container, Title, Subtitle, ContentText } from './styles';
+import Footer from '../../../../modules/global/components/Footer';
 
 const FirstAccess: React.FC = () => {
 	const [fullName, setFullName] = useState<string>(
@@ -31,9 +32,7 @@ const FirstAccess: React.FC = () => {
 			<Input description="E-mail" value={email} />
 			<Input description="CEP" value={zipCode} />
 
-			<Footer>
-				<Button text="Começar" onPress={() => {}} />
-			</Footer>
+			<Footer textButton="Começar" onPress={() => {}} />
 		</Container>
 	);
 };

@@ -7,15 +7,18 @@ import {
 
 import Welcome from '../../../presentation/screens/onboarding/Welcome';
 import FirstAccess from '../../../presentation/screens/onboarding/FirstAccess';
+import Instructions from '../../../presentation/screens/onboarding/Instructions';
 
 export enum OnboardingScreensNavigations {
-	onboarding = 'OnboardingScreen',
+	welcome = 'WelcomeScreen',
 	firstAccess = 'FirstAccessScreen',
+	instructions = 'InstructionsScreen',
 }
 
 export type OnboardingNavigatorParamList = {
-	[OnboardingScreensNavigations.onboarding]: undefined;
+	[OnboardingScreensNavigations.welcome]: undefined;
 	[OnboardingScreensNavigations.firstAccess]: undefined;
+	[OnboardingScreensNavigations.instructions]: undefined;
 };
 
 export default () => {
@@ -30,10 +33,20 @@ export default () => {
 				headerTitleAlign: 'center',
 				headerShown: false,
 			}}
-			initialRouteName={OnboardingScreensNavigations.firstAccess}>
+			initialRouteName={OnboardingScreensNavigations.welcome}>
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.welcome}
+				component={Welcome}
+				options={{ title: '' }}
+			/>
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.firstAccess}
 				component={FirstAccess}
+				options={{ title: '' }}
+			/>
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.instructions}
+				component={Instructions}
 				options={{ title: '' }}
 			/>
 		</OnboardingNavigator.Navigator>

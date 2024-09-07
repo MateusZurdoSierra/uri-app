@@ -19,10 +19,3 @@ export const Title = styled.Text`
 export const Subtitle = styled.Text`
 	font-size: 14px;
 `;
-
-export const Footer = styled.View`
-	flex: 1;
-	align-items: center;
-	justify-content: flex-end;
-	padding-bottom: 32px;
-`;
