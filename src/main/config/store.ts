@@ -1,18 +1,16 @@
 import { applyMiddleware, compose, createStore } from 'redux';
-
 import ReactotronConfig from './reactotron';
-
 import { replace as NavigatorReplace } from '../../modules/global/utils/rootNavigations';
-
 //@ts-ignore
 import applyAppStateListener from 'redux-enhancer-react-native-appstate';
 import createSagaMiddleware from 'redux-saga';
 import log from '../../modules/global/utils/log';
 import { SharedScreenNames } from '../navigation/global';
 import { ScreensNameRoot } from '../navigation';
-import { rootReducers, rootSagas } from '../redux';
 import { getPersistedReducer, getPersistor } from './persist';
+import { rootReducers, rootSagas } from '../../lib/redux';
 
+// Configuração dos middlewares
 const middlewares = [];
 const sagaMonitor = __DEV__
 	? ReactotronConfig.createSagaMonitor?.()
@@ -23,7 +21,7 @@ const sagaMiddleware = createSagaMiddleware({
 	onError: error => {
 		const message = error.message || 'saga-root-error';
 		log(message, error);
-		NavigatorReplace(ScreensNameRoot.global, {
+		NavigatorReplace(ScreensNameRoot.auth, {
 			screens: SharedScreenNames.errorBoundary,
 		});
 	},
@@ -31,7 +29,7 @@ const sagaMiddleware = createSagaMiddleware({
 
 middlewares.push(sagaMiddleware);
 
-const composer = __DEV__
+const composer: any = __DEV__
 	? compose(
 			applyAppStateListener(),
 			applyMiddleware(...middlewares),
@@ -43,8 +41,8 @@ const composer = __DEV__
 const persistedReducer = getPersistedReducer(rootReducers);
 
 const store = createStore(persistedReducer, composer);
+
 sagaMiddleware.run(rootSagas);
 
 export const persistor = getPersistor(store);
-// persistor.purge();
 export default store;

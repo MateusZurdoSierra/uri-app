@@ -4,8 +4,14 @@ import Button from '../../../../modules/global/components/Button';
 
 import { Container, Title, Subtitle, ContentText } from './styles';
 import Footer from '../../../../modules/global/components/Footer';
+import { Navigator } from '../../../../modules/global/utils/rootNavigations';
+import { OnboardingScreensNavigations } from '../../../../main/navigation/onboarding';
+import { useDispatch } from 'react-redux';
+import { OnboardingActions } from '../../../../main/redux/onboarding/reducers';
 
-const FirstAccess: React.FC = () => {
+const InformationForm: React.FC = () => {
+	const dispatch = useDispatch();
+
 	const [fullName, setFullName] = useState<string>(
 		'Digite o seu nome completo',
 	);
@@ -28,13 +34,32 @@ const FirstAccess: React.FC = () => {
 				value={fullName}
 				onChangeText={text => setFullName(text)}
 			/>
-			<Input description="Telefone" value={phone} />
-			<Input description="E-mail" value={email} />
-			<Input description="CEP" value={zipCode} />
+			<Input
+				description="Telefone"
+				value={phone}
+				onChangeText={text => setPhone(text)}
+			/>
+			<Input
+				description="E-mail"
+				value={email}
+				onChangeText={text => setFullName(text)}
+			/>
+			<Input
+				description="CEP"
+				value={zipCode}
+				onChangeText={text => setZipCode(text)}
+			/>
 
-			<Footer textButton="Começar" onPress={() => {}} />
+			<Footer
+				textButton="Começar"
+				onPress={
+					() => {
+						dispatch(OnboardingActions.cep.findCepRegistered({ cep: zipCode }))
+						// Navigator.navigate(OnboardingScreensNavigations.beAnAmbassador)
+					}}
+			/>
 		</Container>
 	);
 };
 
-export default FirstAccess;
+export default InformationForm;

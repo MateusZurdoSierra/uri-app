@@ -6,19 +6,22 @@ import {
 } from '@react-navigation/stack';
 
 import Welcome from '../../../presentation/screens/onboarding/Welcome';
-import FirstAccess from '../../../presentation/screens/onboarding/FirstAccess';
+import FirstAccess from '../../../presentation/screens/onboarding/InformationForm';
 import Instructions from '../../../presentation/screens/onboarding/Instructions';
+import BeAnAmbassador from '../../../presentation/screens/onboarding/Ambassador/BeAnAmbassador';
 
 export enum OnboardingScreensNavigations {
 	welcome = 'WelcomeScreen',
-	firstAccess = 'FirstAccessScreen',
+	informationForm = 'InformationFormScreen',
 	instructions = 'InstructionsScreen',
+	beAnAmbassador = 'BeAnAmbassadorScreen',
 }
 
 export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.welcome]: undefined;
-	[OnboardingScreensNavigations.firstAccess]: undefined;
+	[OnboardingScreensNavigations.informationForm]: undefined;
 	[OnboardingScreensNavigations.instructions]: undefined;
+	[OnboardingScreensNavigations.beAnAmbassador]: undefined;
 };
 
 export default () => {
@@ -40,13 +43,18 @@ export default () => {
 				options={{ title: '' }}
 			/>
 			<OnboardingNavigator.Screen
-				name={OnboardingScreensNavigations.firstAccess}
+				name={OnboardingScreensNavigations.informationForm}
 				component={FirstAccess}
 				options={{ title: '' }}
 			/>
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.instructions}
 				component={Instructions}
+				options={{ title: '' }}
+			/>
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.beAnAmbassador}
+				component={BeAnAmbassador}
 				options={{ title: '' }}
 			/>
 		</OnboardingNavigator.Navigator>

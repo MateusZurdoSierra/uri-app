@@ -6,7 +6,7 @@ import {
 } from 'redux-persist-seamless-immutable';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ApplicationState } from '../redux';
+import { ApplicationState } from '../../lib/redux';
 
 const transformerConfigRoot = {
 	whitelistPerReducer: {},

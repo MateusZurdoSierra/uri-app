@@ -17,7 +17,7 @@ const Instructions: React.FC = () => {
 	};
 
 	const navigateFirstAccess = () => {
-		Navigator.navigate(OnboardingScreensNavigations.firstAccess);
+		Navigator.navigate(OnboardingScreensNavigations.informationForm);
 	};
 
 	const steps: TemplateInstructionsProps[] = [

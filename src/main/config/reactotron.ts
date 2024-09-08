@@ -14,7 +14,7 @@ let tron: typeof Reactotron = Reactotron;
 
 if (__DEV__) {
 	tron = Reactotron.configure({
-		name: 'OlhoNoLance',
+		name: 'UriApp',
 		host: NativeModules.SourceCode.scriptURL.split('://')[1].split(':')[0],
 	})
 		.setAsyncStorageHandler?.(AsyncStorage)

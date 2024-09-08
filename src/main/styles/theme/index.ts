@@ -16,7 +16,7 @@ export interface Theme {
 		light: string;
 		regular: string;
 		medium: string;
-		semibold: string;
+		semiBold: string;
 		bold: string;
 		extraBold: string;
 		black: string;
@@ -41,7 +41,7 @@ const theme: Theme = {
 		light: 'Inter-Light',
 		regular: 'Inter-Regular',
 		medium: 'Inter-Medium',
-		semibold: 'Inter-SemiBold',
+		semiBold: 'Inter-SemiBold',
 		bold: 'Inter-Bold',
 		extraBold: 'Inter-ExtraBold',
 		black: 'Inter-Black',

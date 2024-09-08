@@ -7,15 +7,17 @@ export type SvgName =
 	| 'logo'
 	| 'business'
 	| 'delivery'
-	| 'social';
+	| 'social'
+	| 'notifications';
 
 type IllustrationsType = Record<SvgName, any>;
 
 const illustrations: IllustrationsType = {
-	'logo': Svgs.Logo,
-	'business': Svgs.Business,
-	'delivery': Svgs.Delivery,
-	'social': Svgs.Social,
+	logo: Svgs.Logo,
+	business: Svgs.Business,
+	delivery: Svgs.Delivery,
+	social: Svgs.Social,
+	notifications: Svgs.Notifications,
 };
 
 export interface PropsImageSvg extends PropsSvg {
