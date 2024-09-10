@@ -1,21 +1,20 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+
 import NetInfo from '@react-native-community/netinfo';
-import { useDispatch } from 'react-redux';
 import { NetworkActions } from '../infra/network';
+import { useDispatch } from 'react-redux';
 import RootRoutes from './navigation';
-import Welcome from '../presentation/screens/onboarding/Welcome';
 
 export default function MyApp() {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-	// useEffect(() => {
-	// 	const unsubscribe = NetInfo.addEventListener(state => {
-	// 		dispatch(NetworkActions.setNetworkState(state));
-	// 	});
+	useEffect(() => {
+		const unsubscribe = NetInfo.addEventListener(state => {
+			dispatch(NetworkActions.setNetworkState(state));
+		});
 
-	// 	return unsubscribe;
-	// });
+		return unsubscribe;
+	});
 
 	return <RootRoutes />;
 }

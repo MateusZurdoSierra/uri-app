@@ -9,12 +9,14 @@ import Welcome from '../../../presentation/screens/onboarding/Welcome';
 import FirstAccess from '../../../presentation/screens/onboarding/InformationForm';
 import Instructions from '../../../presentation/screens/onboarding/Instructions';
 import BeAnAmbassador from '../../../presentation/screens/onboarding/Ambassador/BeAnAmbassador';
+import Password from '../../../presentation/screens/onboarding/Password';
 
 export enum OnboardingScreensNavigations {
 	welcome = 'WelcomeScreen',
 	informationForm = 'InformationFormScreen',
 	instructions = 'InstructionsScreen',
 	beAnAmbassador = 'BeAnAmbassadorScreen',
+	password = 'PasswordScreen',
 }
 
 export type OnboardingNavigatorParamList = {
@@ -22,6 +24,7 @@ export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.informationForm]: undefined;
 	[OnboardingScreensNavigations.instructions]: undefined;
 	[OnboardingScreensNavigations.beAnAmbassador]: undefined;
+	[OnboardingScreensNavigations.password]: undefined;
 };
 
 export default () => {
@@ -36,15 +39,10 @@ export default () => {
 				headerTitleAlign: 'center',
 				headerShown: false,
 			}}
-			initialRouteName={OnboardingScreensNavigations.welcome}>
+			initialRouteName={OnboardingScreensNavigations.password}>
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.welcome}
 				component={Welcome}
-				options={{ title: '' }}
-			/>
-			<OnboardingNavigator.Screen
-				name={OnboardingScreensNavigations.informationForm}
-				component={FirstAccess}
 				options={{ title: '' }}
 			/>
 			<OnboardingNavigator.Screen
@@ -53,8 +51,18 @@ export default () => {
 				options={{ title: '' }}
 			/>
 			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.informationForm}
+				component={FirstAccess}
+				options={{ title: '' }}
+			/>
+			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.beAnAmbassador}
 				component={BeAnAmbassador}
+				options={{ title: '' }}
+			/>
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.password}
+				component={Password}
 				options={{ title: '' }}
 			/>
 		</OnboardingNavigator.Navigator>
