@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Container, Title, Subtitle, ContentText, RowContainer, NumeroContainer, BairroContainer } from './styles';
+import { Container, Title, Subtitle, ContentText, RowContainer, NumberContainer , NeighborhoodContainer } from './styles';
 import Input from '../../../../modules/global/components/Input';
 import Footer from '../../../../modules/global/components/Footer';
 
 const AddressScreen: React.FC = () => {
-    const [cep, setCep] = useState<string>(''); 
-    const [rua, setRua] = useState<string>('');
-    const [numero, setNumero] = useState<string>('');
-    const [bairro, setBairro] = useState<string>('');
-    const [cidade, setCidade] = useState<string>('');
+    const [zipCode, setzipCode] = useState<string>(''); 
+    const [street, setStreet] = useState<string>('');
+    const [number, setNumber] = useState<string>('');
+    const [neighborhood, setNeighborhood] = useState<string>('');
+    const [city, setCity] = useState<string>('');
 
     return (
         <Container>
@@ -22,38 +22,38 @@ const AddressScreen: React.FC = () => {
 
             <Input
                 description="CEP"
-                value={cep}
-                onChangeText={numero => setCep(numero)}
+                value={zipCode}
+                onChangeText={number => setzipCode(number)}
             />
 
             <Input
                 description="Rua"
-                value={rua}
-                onChangeText={text => setRua(text)}
+                value={street}
+                onChangeText={text => setStreet(text)}
             />
 
             <RowContainer>
-                <NumeroContainer>
+                <NumberContainer>
                     <Input
                         description="Número"
-                        value={numero}
-                        onChangeText={numero => setNumero(numero)}
+                        value={number}
+                        onChangeText={number => setNumber(number)}
                     />
-                </NumeroContainer>
+                </NumberContainer>
 
-                <BairroContainer>
+                <NeighborhoodContainer>
                     <Input
                         description="Bairro"
-                        value={bairro}
-                        onChangeText={text => setBairro(text)}
+                        value={neighborhood}
+                        onChangeText={text => setNeighborhood(text)}
                     />
-                </BairroContainer>
+                </NeighborhoodContainer>
             </RowContainer>
 
             <Input
                 description="Cidade"
-                value={cidade}
-                onChangeText={text => setCidade(text)}
+                value={city}
+                onChangeText={text => setCity(text)}
             />
 
             <Footer
