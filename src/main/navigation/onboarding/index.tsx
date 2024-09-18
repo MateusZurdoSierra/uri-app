@@ -39,7 +39,7 @@ export default () => {
 				headerTitleAlign: 'center',
 				headerShown: false,
 			}}
-			initialRouteName={OnboardingScreensNavigations.addressScreen}>
+			initialRouteName={OnboardingScreensNavigations.welcome}>
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.welcome}
 				component={Welcome}

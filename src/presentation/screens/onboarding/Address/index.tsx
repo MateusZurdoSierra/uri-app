@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Container, Title, Subtitle, ContentText, RowContainer, NumberContainer , NeighborhoodContainer, CityContainer } from './styles';
+import { Container, Title, Subtitle, ContentText, RowContainer, NumberContainer, NeighborhoodContainer, } from './styles';
 import Input from '../../../../modules/global/components/Input';
 import Footer from '../../../../modules/global/components/Footer';
 
 const AddressScreen: React.FC = () => {
-    const [zipCode, setzipCode] = useState<string>(''); 
+    const [zipCode, setZipCode] = useState<string>('');
     const [street, setStreet] = useState<string>('');
     const [number, setNumber] = useState<string>('');
     const [neighborhood, setNeighborhood] = useState<string>('');
@@ -23,7 +23,7 @@ const AddressScreen: React.FC = () => {
             <Input
                 description="CEP"
                 value={zipCode}
-                onChangeText={number => setzipCode(number)}
+                onChangeText={number => setZipCode(number)}
             />
 
             <Input
@@ -49,17 +49,16 @@ const AddressScreen: React.FC = () => {
                     />
                 </NeighborhoodContainer>
             </RowContainer>
-            
-            <CityContainer>
-                <Input
-                    description="Cidade"
-                    value={city}
-                    onChangeText={text => setCity(text)}
-                />
-            </CityContainer>
+
+            <Input
+                description="Cidade"
+                value={city}
+                onChangeText={text => setCity(text)}
+            />
+
             <Footer
                 textButton="Proximo"
-                onPress={() => {}}
+                onPress={() => { }}
             />
         </Container>
     );

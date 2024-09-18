@@ -23,16 +23,13 @@ export const Subtitle = styled.Text`
 export const RowContainer = styled.View`
 	flex-direction: row;
 	justify-content: space-between;
-	margin-bottom: 16px;
-	gap: 10px;
+	gap: 5px;
 `;
 
 export const NumberContainer = styled.View`
-	width: 40%;
-	
+	width: 35%;
 `;
 
 export const NeighborhoodContainer = styled.View`
-	width: 60%;
-	
+	width: 50%;
 `;
