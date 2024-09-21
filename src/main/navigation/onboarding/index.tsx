@@ -9,6 +9,7 @@ import Welcome from '../../../presentation/screens/onboarding/Welcome';
 import FirstAccess from '../../../presentation/screens/onboarding/InformationForm';
 import Instructions from '../../../presentation/screens/onboarding/Instructions';
 import BeAnAmbassador from '../../../presentation/screens/onboarding/Ambassador/BeAnAmbassador';
+import Password from '../../../presentation/screens/onboarding/Password';
 import AddressScreen from '../../../presentation/screens/onboarding/Address';
 
 export enum OnboardingScreensNavigations {
@@ -16,6 +17,7 @@ export enum OnboardingScreensNavigations {
 	informationForm = 'InformationFormScreen',
 	instructions = 'InstructionsScreen',
 	beAnAmbassador = 'BeAnAmbassadorScreen',
+	password = 'PasswordScreen',
 	addressScreen = 'AddressScreen',
 }
 
@@ -24,6 +26,7 @@ export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.informationForm]: undefined;
 	[OnboardingScreensNavigations.instructions]: undefined;
 	[OnboardingScreensNavigations.beAnAmbassador]: undefined;
+	[OnboardingScreensNavigations.password]: undefined;
 	[OnboardingScreensNavigations.addressScreen]: undefined;
 };
 
@@ -46,13 +49,13 @@ export default () => {
 				options={{ title: '' }}
 			/>
 			<OnboardingNavigator.Screen
-				name={OnboardingScreensNavigations.informationForm}
-				component={FirstAccess}
+				name={OnboardingScreensNavigations.instructions}
+				component={Instructions}
 				options={{ title: '' }}
 			/>
 			<OnboardingNavigator.Screen
-				name={OnboardingScreensNavigations.instructions}
-				component={Instructions}
+				name={OnboardingScreensNavigations.informationForm}
+				component={FirstAccess}
 				options={{ title: '' }}
 			/>
 			<OnboardingNavigator.Screen
@@ -60,7 +63,11 @@ export default () => {
 				component={BeAnAmbassador}
 				options={{ title: '' }}
 			/>
-
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.password}
+				component={Password}
+				options={{ title: '' }}
+			/>
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.addressScreen}
 				component={AddressScreen}

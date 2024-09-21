@@ -22,7 +22,7 @@ export const InputComponent = styled.TextInput<StyleProps>`
 `;
 
 export const DescriptionInput = styled.Text`
-	font-family: ${({ theme }) => theme.font.bold};
+	font-family: ${({ theme }) => theme.font.semiBold};
 	color: ${({ theme }) => theme.colors.black};
 	font-size: 14px;
 	font-weight: bold;
