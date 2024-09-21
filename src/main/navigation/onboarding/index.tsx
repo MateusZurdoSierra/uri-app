@@ -10,6 +10,7 @@ import FirstAccess from '../../../presentation/screens/onboarding/InformationFor
 import Instructions from '../../../presentation/screens/onboarding/Instructions';
 import BeAnAmbassador from '../../../presentation/screens/onboarding/Ambassador/BeAnAmbassador';
 import Password from '../../../presentation/screens/onboarding/Password';
+import AddressScreen from '../../../presentation/screens/onboarding/Address';
 
 export enum OnboardingScreensNavigations {
 	welcome = 'WelcomeScreen',
@@ -17,6 +18,7 @@ export enum OnboardingScreensNavigations {
 	instructions = 'InstructionsScreen',
 	beAnAmbassador = 'BeAnAmbassadorScreen',
 	password = 'PasswordScreen',
+	addressScreen = 'AddressScreen',
 }
 
 export type OnboardingNavigatorParamList = {
@@ -25,6 +27,7 @@ export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.instructions]: undefined;
 	[OnboardingScreensNavigations.beAnAmbassador]: undefined;
 	[OnboardingScreensNavigations.password]: undefined;
+	[OnboardingScreensNavigations.addressScreen]: undefined;
 };
 
 export default () => {
@@ -63,6 +66,11 @@ export default () => {
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.password}
 				component={Password}
+				options={{ title: '' }}
+			/>
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.addressScreen}
+				component={AddressScreen}
 				options={{ title: '' }}
 			/>
 		</OnboardingNavigator.Navigator>
