@@ -22,9 +22,9 @@ const BeAnAmbassador: React.FC = ({}) => {
 				</Title>
 				<Illustration name={'notifications'} width={250} height={0} />
 				<DescriptionTitle>
-					{'Seja o embaixador do Uri no Seu Bairro!'}
+					Seja o embaixador do Uri no Seu Bairro!
 				</DescriptionTitle>
-				
+
 				<Description>
 					Atualmente, seu bairro ainda
 					<ColorPrimary> não está disponível </ColorPrimary>no aplicativo. Mas

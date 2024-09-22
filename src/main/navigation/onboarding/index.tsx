@@ -9,6 +9,7 @@ import Welcome from '../../../presentation/screens/onboarding/Welcome';
 import FirstAccess from '../../../presentation/screens/onboarding/InformationForm';
 import Instructions from '../../../presentation/screens/onboarding/Instructions';
 import BeAnAmbassador from '../../../presentation/screens/onboarding/Ambassador/BeAnAmbassador';
+import WhatIsAmbassador from '../../../presentation/screens/onboarding/Ambassador/WhatIsAmbassador';
 import Password from '../../../presentation/screens/onboarding/Password';
 import AddressScreen from '../../../presentation/screens/onboarding/Address';
 
@@ -17,6 +18,7 @@ export enum OnboardingScreensNavigations {
 	informationForm = 'InformationFormScreen',
 	instructions = 'InstructionsScreen',
 	beAnAmbassador = 'BeAnAmbassadorScreen',
+	whatIsAmbassador = 'WhatIsAmbassador',
 	password = 'PasswordScreen',
 	addressScreen = 'AddressScreen',
 }
@@ -26,6 +28,7 @@ export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.informationForm]: undefined;
 	[OnboardingScreensNavigations.instructions]: undefined;
 	[OnboardingScreensNavigations.beAnAmbassador]: undefined;
+	[OnboardingScreensNavigations.whatIsAmbassador]: undefined;
 	[OnboardingScreensNavigations.password]: undefined;
 	[OnboardingScreensNavigations.addressScreen]: undefined;
 };
@@ -61,6 +64,11 @@ export default () => {
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.beAnAmbassador}
 				component={BeAnAmbassador}
+				options={{ title: '' }}
+			/>
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.whatIsAmbassador}
+				component={WhatIsAmbassador}
 				options={{ title: '' }}
 			/>
 			<OnboardingNavigator.Screen
