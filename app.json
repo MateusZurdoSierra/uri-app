@@ -22,6 +22,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Uri App precisa de permissão para acessar sua câmera.",
+          "microphonePermission": "Uri App precisa de permissão para acessar seu microfone.",
+          "recordAudioAndroid": true
+        }
+      ]
+    ]
   }
 }

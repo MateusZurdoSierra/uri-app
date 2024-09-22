@@ -16,7 +16,7 @@ export const Content = styled.View`
 export const Title = styled.Text`
 	font-family: ${({ theme }) => theme.font.semiBold};
 	margin-top: 24px;
-	margin-bottom: 16px;;
+	margin-bottom: 16px;
 	font-size: 16px;
 	text-align: center;
 `;

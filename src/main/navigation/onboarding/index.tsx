@@ -14,6 +14,7 @@ import Password from '../../../presentation/screens/onboarding/Password';
 import AddressScreen from '../../../presentation/screens/onboarding/Address';
 import ConfirmData from '../../../presentation/screens/onboarding/ConfirmData';
 import ValidateDocuments from '../../../presentation/screens/onboarding/ValidateDocuments';
+import CaptureDocument from '../../../presentation/screens/onboarding/CaptureDocument';
 
 export enum OnboardingScreensNavigations {
 	welcome = 'WelcomeScreen',
@@ -25,6 +26,7 @@ export enum OnboardingScreensNavigations {
 	addressScreen = 'AddressScreen',
 	confirmData = 'ConfirmData',
 	validationDocuments = 'ValidationDocuments',
+	captureDocument = 'CaptureDocument',
 }
 
 export type OnboardingNavigatorParamList = {
@@ -37,6 +39,7 @@ export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.addressScreen]: undefined;
 	[OnboardingScreensNavigations.confirmData]: undefined;
 	[OnboardingScreensNavigations.validationDocuments]: undefined;
+	[OnboardingScreensNavigations.captureDocument]: undefined;
 };
 
 export default () => {
@@ -95,6 +98,11 @@ export default () => {
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.validationDocuments}
 				component={ValidateDocuments}
+				options={{ title: '' }}
+			/>
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.captureDocument}
+				component={CaptureDocument}
 				options={{ title: '' }}
 			/>
 		</OnboardingNavigator.Navigator>
