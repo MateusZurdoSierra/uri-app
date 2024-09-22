@@ -8,7 +8,8 @@ export type SvgName =
 	| 'business'
 	| 'delivery'
 	| 'social'
-	| 'notifications';
+	| 'notifications'
+	| 'send_data';
 
 type IllustrationsType = Record<SvgName, any>;
 
@@ -18,6 +19,7 @@ const illustrations: IllustrationsType = {
 	delivery: Svgs.Delivery,
 	social: Svgs.Social,
 	notifications: Svgs.Notifications,
+	send_data: Svgs.SendData,
 };
 
 export interface PropsImageSvg extends PropsSvg {

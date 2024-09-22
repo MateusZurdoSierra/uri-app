@@ -12,6 +12,7 @@ import BeAnAmbassador from '../../../presentation/screens/onboarding/Ambassador/
 import WhatIsAmbassador from '../../../presentation/screens/onboarding/Ambassador/WhatIsAmbassador';
 import Password from '../../../presentation/screens/onboarding/Password';
 import AddressScreen from '../../../presentation/screens/onboarding/Address';
+import ConfirmData from '../../../presentation/screens/onboarding/ConfirmData';
 
 export enum OnboardingScreensNavigations {
 	welcome = 'WelcomeScreen',
@@ -21,6 +22,7 @@ export enum OnboardingScreensNavigations {
 	whatIsAmbassador = 'WhatIsAmbassador',
 	password = 'PasswordScreen',
 	addressScreen = 'AddressScreen',
+	confirmData = 'ConfirmData',
 }
 
 export type OnboardingNavigatorParamList = {
@@ -31,6 +33,7 @@ export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.whatIsAmbassador]: undefined;
 	[OnboardingScreensNavigations.password]: undefined;
 	[OnboardingScreensNavigations.addressScreen]: undefined;
+	[OnboardingScreensNavigations.confirmData]: undefined;
 };
 
 export default () => {
@@ -79,6 +82,11 @@ export default () => {
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.addressScreen}
 				component={AddressScreen}
+				options={{ title: '' }}
+			/>
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.confirmData}
+				component={ConfirmData}
 				options={{ title: '' }}
 			/>
 		</OnboardingNavigator.Navigator>

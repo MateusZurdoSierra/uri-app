@@ -12,7 +12,7 @@ export const ContentBanner = styled.View`
 `;
 
 export const TitleBanner = styled.Text`
-	font-family: ${({theme}) => theme.font.semibold};
+	font-family: ${({theme}) => theme.font.semiBold};
 	color: ${({theme}) => theme.colors.black};
 	font-size: 18px;
 
