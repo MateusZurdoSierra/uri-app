@@ -17,7 +17,7 @@ export const Content = styled.View`
 `;
 
 export const Access = styled.Text`
-	font-family: ${({ theme }) => theme.font.semibold};
+	font-family: ${({ theme }) => theme.font.semiBold};
 	font-size: 32px;
 
 	margin-top: 30px;

@@ -8,6 +8,7 @@ export interface Theme {
 		black: string;
 		white: string;
 		lines: string;
+		gray: string;
 	};
 
 	font: {
@@ -33,6 +34,7 @@ const theme: Theme = {
 		black: '#000000',
 		white: '#FFFFFF',
 		lines: '#CACACA',
+		gray: '#595959',
 	},
 
 	font: {
