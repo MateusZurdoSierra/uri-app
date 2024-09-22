@@ -25,7 +25,7 @@ const CustomBannerItem: React.FC<CustomBannerItemProps> = ({
 
 				<ContentTexts>
 					<Title>{title}</Title>
-					<Description numberOfLines={2}>{description}</Description>
+					<Description numberOfLines={3}>{description}</Description>
 				</ContentTexts>
 			</Content>
 		</Container>

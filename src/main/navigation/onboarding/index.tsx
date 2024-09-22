@@ -13,6 +13,7 @@ import WhatIsAmbassador from '../../../presentation/screens/onboarding/Ambassado
 import Password from '../../../presentation/screens/onboarding/Password';
 import AddressScreen from '../../../presentation/screens/onboarding/Address';
 import ConfirmData from '../../../presentation/screens/onboarding/ConfirmData';
+import ValidateDocuments from '../../../presentation/screens/onboarding/ValidateDocuments';
 
 export enum OnboardingScreensNavigations {
 	welcome = 'WelcomeScreen',
@@ -23,6 +24,7 @@ export enum OnboardingScreensNavigations {
 	password = 'PasswordScreen',
 	addressScreen = 'AddressScreen',
 	confirmData = 'ConfirmData',
+	validationDocuments = 'ValidationDocuments',
 }
 
 export type OnboardingNavigatorParamList = {
@@ -34,6 +36,7 @@ export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.password]: undefined;
 	[OnboardingScreensNavigations.addressScreen]: undefined;
 	[OnboardingScreensNavigations.confirmData]: undefined;
+	[OnboardingScreensNavigations.validationDocuments]: undefined;
 };
 
 export default () => {
@@ -87,6 +90,11 @@ export default () => {
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.confirmData}
 				component={ConfirmData}
+				options={{ title: '' }}
+			/>
+			<OnboardingNavigator.Screen
+				name={OnboardingScreensNavigations.validationDocuments}
+				component={ValidateDocuments}
 				options={{ title: '' }}
 			/>
 		</OnboardingNavigator.Navigator>

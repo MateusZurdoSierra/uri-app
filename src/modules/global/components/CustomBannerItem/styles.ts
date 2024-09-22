@@ -6,7 +6,7 @@ type StyleProps = {
 }
 
 export const Container = styled.View<StyleProps>`
-	height: 74px;
+	height: auto;
 	width: 100%;
 	padding: 8px;
 
@@ -23,7 +23,7 @@ export const Container = styled.View<StyleProps>`
 export const Content = styled.View`
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 `;
 
 export const ContentTexts = styled.View`
