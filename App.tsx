@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { AppRegistry } from 'react-native';
-import { expo as appName } from './app.json';
+import { expo as appName } from './app.config';
 import Providers from './src/main/Providers';
 import './src/main/config/reactotron';
 
