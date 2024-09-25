@@ -6,3 +6,7 @@ node_modules/
 
 # env files
 .env
+
+# ios and android
+/ios/
+/android/
