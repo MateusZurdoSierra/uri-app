@@ -5,17 +5,17 @@ import {
 	TransitionPresets,
 } from '@react-navigation/stack';
 
-import Welcome from '../../../presentation/screens/onboarding/Welcome';
-import FirstAccess from '../../../presentation/screens/onboarding/InformationForm';
-import Instructions from '../../../presentation/screens/onboarding/Instructions';
-import BeAnAmbassador from '../../../presentation/screens/onboarding/Ambassador/BeAnAmbassador';
-import WhatIsAmbassador from '../../../presentation/screens/onboarding/Ambassador/WhatIsAmbassador';
-import Password from '../../../presentation/screens/onboarding/Password';
-import AddressScreen from '../../../presentation/screens/onboarding/Address';
-import ConfirmData from '../../../presentation/screens/onboarding/ConfirmData';
-import ValidateDocuments from '../../../presentation/screens/onboarding/ValidateDocuments';
-import CaptureDocument from '../../../presentation/screens/onboarding/CaptureDocument';
-import ConfirmLocation from '../../../presentation/screens/onboarding/ConfirmLocation';
+import Welcome from '../../presentation/screens/onboarding/Welcome';
+import FirstAccess from '../../presentation/screens/onboarding/InformationForm';
+import Instructions from '../../presentation/screens/onboarding/Instructions';
+import BeAnAmbassador from '../../presentation/screens/onboarding/Ambassador/BeAnAmbassador';
+import WhatIsAmbassador from '../../presentation/screens/onboarding/Ambassador/WhatIsAmbassador';
+import Password from '../../presentation/screens/onboarding/Password';
+import AddressScreen from '../../presentation/screens/onboarding/Address';
+import ConfirmData from '../../presentation/screens/onboarding/ConfirmData';
+import ValidateDocuments from '../../presentation/screens/onboarding/ValidateDocuments';
+import CaptureDocument from '../../presentation/screens/onboarding/CaptureDocument';
+import ConfirmLocation from '../../presentation/screens/onboarding/ConfirmLocation';
 
 export enum OnboardingScreensNavigations {
 	welcome = 'WelcomeScreen',

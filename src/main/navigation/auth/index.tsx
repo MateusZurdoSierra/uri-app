@@ -5,7 +5,7 @@ import {
 	TransitionPresets,
 } from '@react-navigation/stack';
 
-import Login from '../../../presentation/screens/auth/Login';
+import Login from '../../presentation/screens/auth/Login';
 
 export enum AuthScreensNavigations {
 	login = 'LoginScreen',

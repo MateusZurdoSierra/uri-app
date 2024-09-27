@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Home from '../../../presentation/screens/home/Home';
+import Home from '../../presentation/screens/home/Home';
 import {
 	createStackNavigator,
 	TransitionPresets,

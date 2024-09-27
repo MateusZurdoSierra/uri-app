@@ -5,13 +5,13 @@ import ThemeProvider from './styles/theme/ThemeProvider';
 import { Provider } from 'react-redux';
 
 import theme from './styles/theme';
+import store from './config/store';
 import MyApp from './App';
 
 import {
 	navigationAnalytics,
 	navigationRef,
 } from '../modules/global/utils/rootNavigations';
-import store from './config/store';
 
 const Providers: React.FC = () => {
 	return (

@@ -3,8 +3,8 @@ import {
 	createStackNavigator,
 } from '@react-navigation/stack';
 
-import { ErrorBoundaryScreen } from '../../../presentation/global/screen.errorBoundary';
-import CustomStatusScreen from '../../../presentation/global/screen.customStatus';
+import { ErrorBoundaryScreen } from '../../../modules/global/presentation/screen.errorBoundary';
+import CustomStatusScreen from '../../../modules/global/presentation/screen.customStatus';
 
 import React from 'react';
 // import { CustomStatusProps } from '~/modules/global/components/Templates/Template.CustomStatus';
