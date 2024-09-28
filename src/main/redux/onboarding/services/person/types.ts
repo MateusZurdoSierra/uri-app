@@ -1,9 +1,12 @@
+import { PersonProps } from '../../reducers/person-reducer';
+
 export interface PersonParamsPayload {
-	name: string;
+	person: PersonProps;
 }
 
 export interface PersonResponse {
-	status: string;
+	hasAccount: boolean;
+	person: PersonProps;
 }
 
 export interface PersonServiceProtocol {

@@ -28,3 +28,9 @@ export const Content = styled.View`
 export const ContentTexts = styled.View`
 	align-items: center;
 `;
+
+export const ContentFooter = styled.View`
+	flex: 1;
+	justify-content: flex-end;
+	padding: 16px;
+`;

@@ -5,13 +5,14 @@ import Button from '../Button';
 import { FooterContainer } from './styles';
 
 interface FooterProps {
+	withFlex?: boolean;
 	textButton: string;
 	onPress: () => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ textButton, onPress }) => {
+const Footer: React.FC<FooterProps> = ({ withFlex, textButton, onPress }) => {
 	return (
-		<FooterContainer>
+		<FooterContainer withFlex={withFlex}>
 			<Button text={textButton} onPress={() => onPress()} />
 		</FooterContainer>
 	);

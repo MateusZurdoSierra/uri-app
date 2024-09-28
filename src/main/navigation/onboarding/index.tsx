@@ -5,22 +5,18 @@ import {
 	TransitionPresets,
 } from '@react-navigation/stack';
 
-import Welcome from '../../presentation/screens/onboarding/Welcome';
-import FirstAccess from '../../presentation/screens/onboarding/InformationForm';
-import Instructions from '../../presentation/screens/onboarding/Instructions';
+import AddressScreen from '../../presentation/screens/onboarding/Address';
 import BeAnAmbassador from '../../presentation/screens/onboarding/Ambassador/BeAnAmbassador';
 import WhatIsAmbassador from '../../presentation/screens/onboarding/Ambassador/WhatIsAmbassador';
-import Password from '../../presentation/screens/onboarding/Password';
-import AddressScreen from '../../presentation/screens/onboarding/Address';
-import ConfirmData from '../../presentation/screens/onboarding/ConfirmData';
-import ValidateDocuments from '../../presentation/screens/onboarding/ValidateDocuments';
 import CaptureDocument from '../../presentation/screens/onboarding/CaptureDocument';
+import ConfirmData from '../../presentation/screens/onboarding/ConfirmData';
 import ConfirmLocation from '../../presentation/screens/onboarding/ConfirmLocation';
+import FirstAccess from '../../presentation/screens/onboarding/InformationForm';
+import Password from '../../presentation/screens/onboarding/Password';
+import ValidateDocuments from '../../presentation/screens/onboarding/ValidateDocuments';
 
 export enum OnboardingScreensNavigations {
-	welcome = 'WelcomeScreen',
 	informationForm = 'InformationFormScreen',
-	instructions = 'InstructionsScreen',
 	beAnAmbassador = 'BeAnAmbassadorScreen',
 	whatIsAmbassador = 'WhatIsAmbassador',
 	password = 'PasswordScreen',
@@ -32,9 +28,7 @@ export enum OnboardingScreensNavigations {
 }
 
 export type OnboardingNavigatorParamList = {
-	[OnboardingScreensNavigations.welcome]: undefined;
 	[OnboardingScreensNavigations.informationForm]: undefined;
-	[OnboardingScreensNavigations.instructions]: undefined;
 	[OnboardingScreensNavigations.beAnAmbassador]: undefined;
 	[OnboardingScreensNavigations.whatIsAmbassador]: undefined;
 	[OnboardingScreensNavigations.password]: undefined;
@@ -57,17 +51,7 @@ export default () => {
 				headerTitleAlign: 'center',
 				headerShown: false,
 			}}
-			initialRouteName={OnboardingScreensNavigations.welcome}>
-			<OnboardingNavigator.Screen
-				name={OnboardingScreensNavigations.welcome}
-				component={Welcome}
-				options={{ title: '' }}
-			/>
-			<OnboardingNavigator.Screen
-				name={OnboardingScreensNavigations.instructions}
-				component={Instructions}
-				options={{ title: '' }}
-			/>
+			initialRouteName={OnboardingScreensNavigations.informationForm}>
 			<OnboardingNavigator.Screen
 				name={OnboardingScreensNavigations.informationForm}
 				component={FirstAccess}

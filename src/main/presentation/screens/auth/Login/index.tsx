@@ -16,10 +16,11 @@ import {
 	Line,
 	ViewText,
 } from './styles';
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
+import { ScreensNameRoot } from '../../../../navigation';
 
 const Login: React.FC = () => {
 	const [inputSelected, setInputSelected] = useState(false);
-	console.warn(inputSelected);
 
 	return (
 		<Container>
@@ -40,7 +41,10 @@ const Login: React.FC = () => {
 				</ViewText>
 
 				<Footer>
-					<Button text="Acessar" onPress={() => {}} />
+					<Button
+						text="Acessar"
+						onPress={() => Navigator.navigate(ScreensNameRoot.home)}
+					/>
 					<DividerContent>
 						<Line />
 						<DividerText>ou</DividerText>
@@ -49,7 +53,7 @@ const Login: React.FC = () => {
 					<Button
 						text="Criar uma conta"
 						typeButton={TypeButton.OUTLINE}
-						onPress={() => {}}
+						onPress={() => Navigator.navigate(ScreensNameRoot.onboarding)}
 					/>
 				</Footer>
 			</Content>

@@ -4,6 +4,7 @@ import { OnboardingScreensNavigations } from '../../../../navigation/onboarding'
 import TemplateInstructions, {
 	TemplateInstructionsProps,
 } from '../../../../../modules/global/components/Templates/Template.Instructions';
+import { ScreensNameRoot } from '../../../../navigation';
 
 const Instructions: React.FC = () => {
 	const [step, setStep] = useState(0);
@@ -17,7 +18,7 @@ const Instructions: React.FC = () => {
 	};
 
 	const navigateFirstAccess = () => {
-		Navigator.navigate(OnboardingScreensNavigations.informationForm);
+		Navigator.navigate(ScreensNameRoot.onboarding);
 	};
 
 	const steps: TemplateInstructionsProps[] = [

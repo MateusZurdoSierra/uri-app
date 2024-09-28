@@ -7,7 +7,10 @@ interface InputProps extends TextInputProps {
 	description: string;
 	value: string;
 	selected?: boolean;
+	maxLength?: number;
 	onChangeText?: (text: string) => void;
+	onFocus?: () => void;
+	onBlur?: () => void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -15,6 +18,7 @@ const Input: React.FC<InputProps> = ({
 	value,
 	selected,
 	onChangeText,
+	...rest
 }) => {
 	return (
 		<InputContainer>
@@ -23,6 +27,7 @@ const Input: React.FC<InputProps> = ({
 				value={value}
 				selected={selected}
 				onChangeText={onChangeText}
+				{...rest}
 			/>
 		</InputContainer>
 	);

@@ -47,6 +47,7 @@ const ConfirmLocation: React.FC = () => {
 			},
 			location => {
 				if (location.coords) {
+					console.tron.log(location);
 					setCoordinates(location.coords);
 				}
 
@@ -110,6 +111,7 @@ const ConfirmLocation: React.FC = () => {
 
 						<Footer
 							textButton="Confirmar localização"
+							withFlex
 							onPress={() => setModalVisible(false)}
 						/>
 					</ModalContent>

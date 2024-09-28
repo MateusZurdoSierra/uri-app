@@ -7,9 +7,9 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.View`
-	flex: 4;
+	flex: 1;
 
-	padding-top: 54px;
+	padding: 54px 0px;
 	align-items: center;
 	justify-content: space-between;
 `;

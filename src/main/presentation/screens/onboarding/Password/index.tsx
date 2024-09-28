@@ -45,8 +45,6 @@ const Password: React.FC = () => {
 		minLength,
 	} = handleValidatePassword(password);
 
-	console.warn(isFocusedPassword);
-
 	return (
 		<Container>
 			<ContentText>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
-import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
+import { WelcomeScreensNavigations } from '../../../../navigation/welcome';
 import Footer from '../../../../../modules/global/components/Footer';
 
 import {
@@ -11,6 +11,7 @@ import {
 	Image,
 	LabelWelcome,
 	TextWelcome,
+	ContentFooter,
 } from './styles';
 
 const Welcome: React.FC = () => {
@@ -33,14 +34,16 @@ const Welcome: React.FC = () => {
 					<TextWelcome>Bem vindo ao URI App!</TextWelcome>
 					<LabelWelcome>O leão da sua vizinhança.</LabelWelcome>
 				</ContentTexts>
-
+			</Content>
+			<ContentFooter>
 				<Footer
 					textButton="Começar"
+					withFlex
 					onPress={() =>
-						Navigator.navigate(OnboardingScreensNavigations.instructions)
+						Navigator.navigate(WelcomeScreensNavigations.instructions)
 					}
 				/>
-			</Content>
+			</ContentFooter>
 		</Container>
 	);
 };

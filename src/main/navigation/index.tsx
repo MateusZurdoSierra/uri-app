@@ -2,24 +2,32 @@ import React from 'react';
 import { Navigations, Navigator } from './types';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import WelcomeNavigation, { WelcomeNavigatorParamList } from './welcome';
 import HomeNavigation, { HomeNavigatorParamList } from './home';
+import AuthNavigation, { AuthNavigatorParamList } from './auth';
 import OnboardingNavigation, {
 	OnboardingNavigatorParamList,
 } from './onboarding';
-import AuthNavigation, { AuthNavigatorParamList } from './auth';
 
 export const ScreensNameRoot = {
+	welcome: 'Welcome',
+	auth: 'Auth',
 	onboarding: 'Onboarding',
 	home: 'Home',
-	auth: 'Auth',
 };
 
 type Keys = keyof typeof ScreensNameRoot;
 export type ScreensNameRootType = (typeof ScreensNameRoot)[Keys];
-export type RootNavigatorParamList = OnboardingNavigatorParamList &
-	HomeNavigatorParamList & AuthNavigatorParamList;
+export type RootNavigatorParamList = WelcomeNavigatorParamList &
+	OnboardingNavigatorParamList &
+	HomeNavigatorParamList &
+	AuthNavigatorParamList;
 
 const navigations: Navigations = [
+	{
+		name: ScreensNameRoot.welcome,
+		component: WelcomeNavigation,
+	},
 	{
 		name: ScreensNameRoot.onboarding,
 		component: OnboardingNavigation,
@@ -31,7 +39,7 @@ const navigations: Navigations = [
 	{
 		name: ScreensNameRoot.auth,
 		component: AuthNavigation,
-	}
+	},
 ];
 
 const Stack = createStackNavigator();
@@ -52,7 +60,7 @@ const renderNavigations = navigations.map(
 const RootRoutes: React.FC = () => {
 	return (
 		<Stack.Navigator
-			initialRouteName={ScreensNameRoot.onboarding}
+			initialRouteName={ScreensNameRoot.welcome}
 			screenOptions={{
 				headerShown: false,
 				animationEnabled: true,
