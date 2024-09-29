@@ -51,7 +51,7 @@ const renderNavigations = navigations.map(
 				key={name}
 				name={name}
 				options={{ animationEnabled: false }}>
-				{(props: any) => <Component key={name} {...props} />}
+				{(props: any) => <Component {...props} />}
 			</Stack.Screen>
 		);
 	},

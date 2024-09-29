@@ -1,33 +1,35 @@
 import React from 'react';
 
 import Banner from '../../../../../modules/global/components/Banner';
-import Header from '../../../../../modules/global/components/Header';
 
+import { FlatList } from 'react-native';
+import { IncidentBannerMock } from './mockBanner';
 import { Container } from './styles';
 
 const Home: React.FC = () => {
 	return (
 		<Container>
-			<Header />
-			<Banner
-				title="Marcos Batochio"
-				message="Vi um carro vermelho suspeito a noite na rua Jose leonardo n 5657"
-			/>
-			<Banner
-				title="Danilo de camargo"
-				message="Vi um carro vermelho suspeito a noite na rua Jose leonardo n 5657"
-			/>
-			<Banner
-				title="Mateus Zurdo"
-				message="Vi um carro vermelho suspeito a noite na rua Jose leonardo n 5657"
-			/>
-			<Banner
-				title="Higor"
-				message="Vi um carro vermelho suspeito a noite na rua Jose leonardo n 5657"
-			/>
-			<Banner
-				title="José Viana"
-				message="Vi um carro vermelho suspeito a noite na rua Jose leonardo n 5657"
+			<FlatList
+				data={IncidentBannerMock}
+				renderItem={({ item }) => (
+					<Banner
+						title={item.person.name}
+						message={item.incident.description}
+						incidentType={item.incident.type}
+						hour={item.incident.createDate}
+						numberLikes={254}
+						handleLike={() => {
+							console.log('like');
+						}}
+					/>
+				)}
+				showsVerticalScrollIndicator={false}
+				contentContainerStyle={{
+					flexGrow: 1,
+					padding: 16,
+					paddingBottom: 86,
+					backgroundColor: '#fff',
+				}}
 			/>
 		</Container>
 	);
