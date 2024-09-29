@@ -23,6 +23,7 @@
     "expo-font": "~12.0.10",
     "expo-location": "^17.0.1",
     "expo-status-bar": "~1.12.1",
+    "expo-updates": "~0.25.25",
     "install": "^0.13.0",
     "lottie-react-native": "^7.0.0",
     "react": "18.2.0",
