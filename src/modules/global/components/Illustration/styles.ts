@@ -7,6 +7,7 @@ import SocialSvg from '../../../../assets/svgs/social.svg';
 import NotificationsSvg from '../../../../assets/svgs/notifications.svg';
 import SendDataSvg from '../../../../assets/svgs/send_data.svg';
 import ValidateUploadSvg from '../../../../assets/svgs/validate_upload.svg';
+import ShareSvg from '../../../../assets/svgs/share.svg';
 
 export const Container = styled.View``;
 
@@ -23,3 +24,5 @@ export const Notifications = styled(NotificationsSvg).attrs({})``;
 export const SendData = styled(SendDataSvg).attrs({})``;
 
 export const ValidateUpload = styled(ValidateUploadSvg).attrs({})``;
+
+export const Share = styled(ShareSvg).attrs({})``;

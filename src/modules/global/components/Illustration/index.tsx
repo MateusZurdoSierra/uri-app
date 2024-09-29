@@ -10,7 +10,8 @@ export type SvgName =
 	| 'social'
 	| 'notifications'
 	| 'send_data'
-	| 'validate_upload';
+	| 'validate_upload'
+	| 'share';
 
 type IllustrationsType = Record<SvgName, any>;
 
@@ -22,6 +23,7 @@ const illustrations: IllustrationsType = {
 	notifications: Svgs.Notifications,
 	send_data: Svgs.SendData,
 	validate_upload: Svgs.ValidateUpload,
+	share: Svgs.Share,
 };
 
 export interface PropsImageSvg extends PropsSvg {

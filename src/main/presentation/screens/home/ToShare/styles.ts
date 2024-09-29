@@ -7,16 +7,18 @@ export const Container = styled.View`
 
 export const Content = styled.View`
 	flex: 1;
-	padding: 0px 16px 16px 16px;
+	padding: 16px;
+`;
+export const ContentTitleAndIllustration = styled.View`
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
 `;
 
 export const Title = styled.Text`
-	font-family: ${({ theme }) => theme.font.bold};
-	font-size: 24px;
-`;
-
-export const Subtitle = styled.Text`
 	font-family: ${({ theme }) => theme.font.regular};
-	font-size: 18px;
-	margin-bottom: 16px;
+	text-align: center;
+	font-size: 20px;
+	margin-bottom: 24px;
 `;
