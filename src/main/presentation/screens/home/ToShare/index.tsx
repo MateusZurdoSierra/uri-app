@@ -35,7 +35,7 @@ const ToShare: React.FC = () => {
 			<Content>
 				<ContentTitleAndIllustration>
 					<Title>
-						Convide vizinhos para o Uri e aumente a segurança em seu bairro
+						Convide vizinhos para o Uri e aumente a segurança em seu bairro.
 					</Title>
 					<Illustration name="share" height={200} width={200} />
 				</ContentTitleAndIllustration>

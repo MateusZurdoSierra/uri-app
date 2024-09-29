@@ -10,17 +10,27 @@ export enum TypeButton {
 interface ButtonProps {
 	text: string;
 	typeButton?: TypeButton;
+	isWhiteButton?: boolean;
+	marginBottom?: number;
 	onPress: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
 	text,
+	isWhiteButton = false,
+	marginBottom,
 	typeButton = TypeButton.SOLID,
 	onPress,
 }) => {
 	return (
-		<Container onPress={onPress} typeButton={typeButton}>
-			<LabelButton typeButton={typeButton}>{text}</LabelButton>
+		<Container
+			onPress={onPress}
+			isWhiteButton={isWhiteButton}
+			marginBottom={marginBottom}
+			typeButton={typeButton}>
+			<LabelButton typeButton={typeButton} isWhiteButton={isWhiteButton}>
+				{text}
+			</LabelButton>
 		</Container>
 	);
 };

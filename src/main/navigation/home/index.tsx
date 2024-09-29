@@ -67,11 +67,18 @@ const TabNavigator = React.memo(() => {
 						return <MaterialIcons name={'settings'} size={30} color={color} />;
 					}
 				},
-				tabBarActiveTintColor: '#8133f1',
+				tabBarActiveTintColor:
+					route.name === HomeScreensNavigations.sosUrgent
+						? '#D64040'
+						: '#8133f1',
 				tabBarInactiveTintColor: '#8e8e93',
 				tabBarShowLabel: false,
 				tabBarStyle: {
-					display: route.name === HomeScreensNavigations.home ? 'flex' : 'none',
+					display:
+						route.name === HomeScreensNavigations.home ||
+						route.name === HomeScreensNavigations.sosUrgent
+							? 'flex'
+							: 'none',
 					height: Platform.OS === 'ios' ? 100 : 80,
 					borderTopLeftRadius: 30,
 					borderTopRightRadius: 30,

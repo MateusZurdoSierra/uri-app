@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import HeaderBackButton from '../../../../../modules/global/components/HeaderBackButton';
+import { Container, Content, Title } from './styles';
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
+import { HomeScreensNavigations } from '../../../../navigation/home';
 
 const Configurations: React.FC = () => {
 	return (
-		<View
-			style={{
-				flex: 1,
-				backgroundColor: '#fff',
-				alignItems: 'center',
-				justifyContent: 'center',
-			}}>
-			<Text>TELA DE CONFIGURAÇÕES</Text>
-		</View>
+		<Container>
+			<HeaderBackButton
+				onPress={() => Navigator.navigate(HomeScreensNavigations.home)}
+			/>
+			<Content>
+				<Title>Configurações</Title>
+			</Content>
+		</Container>
 	);
 };
 

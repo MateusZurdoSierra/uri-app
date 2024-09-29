@@ -9,6 +9,7 @@ export const Content = styled.View`
 	flex: 1;
 	padding: 16px;
 `;
+
 export const ContentTitleAndIllustration = styled.View`
 	flex: 1;
 	align-items: center;
