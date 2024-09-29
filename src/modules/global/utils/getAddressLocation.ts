@@ -7,7 +7,7 @@ export async function getAddressLocation({
 	try {
 		const addressResponse = await reverseGeocodeAsync({ latitude, longitude });
 
-		return addressResponse[0].street;
+		return addressResponse[0].formattedAddress;
 	} catch (error) {
 		console.tron.log(error);
 	}

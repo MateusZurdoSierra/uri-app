@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import {
-	useForegroundPermissions,
-	watchPositionAsync,
-	LocationAccuracy,
-	LocationSubscription,
-	LocationObjectCoords,
-} from 'expo-location';
 
 import Footer from '../../../../../modules/global/components/Footer';
-import { getAddressLocation } from '../../../../../modules/global/utils/getAddressLocation';
 
 import {
 	Container,
@@ -20,58 +12,22 @@ import {
 	Title,
 	TitleModal,
 } from './styles';
+import { useLocation } from '../../../../../modules/global/hooks/useLocation';
 
 const ConfirmLocation: React.FC = () => {
-	const [isLoadingLocation, setIsLoadingLocation] = useState(true);
-	const [currentAddress, setCurrentAddress] = useState<string | null>(null);
-	const [coordinates, setCoordinates] = useState<LocationObjectCoords | null>(
-		null,
-	);
+	const {
+		coordinates,
+		currentAddress,
+		isLoadingLocation,
+		locationForegroundPermission,
+	} = useLocation();
 	const [modalVisible, setModalVisible] = useState(true);
-	const [locationForegroundPermission, requestLocationForegroundPermission] =
-		useForegroundPermissions();
-
-	useEffect(() => {
-		requestLocationForegroundPermission();
-	}, []);
-
-	useEffect(() => {
-		if (!locationForegroundPermission?.granted) return;
-
-		let subscription: LocationSubscription;
-
-		watchPositionAsync(
-			{
-				accuracy: LocationAccuracy.High,
-				timeInterval: 1000,
-			},
-			location => {
-				if (location.coords) {
-					console.tron.log(location);
-					setCoordinates(location.coords);
-				}
-
-				getAddressLocation(location.coords)
-					.then(address => {
-						if (address) {
-							setCurrentAddress(address);
-						}
-					})
-					.finally(() => setIsLoadingLocation(false));
-			},
-		).then(response => (subscription = response));
-
-		return () => {
-			if (subscription) subscription.remove();
-		};
-	}, [locationForegroundPermission]);
 
 	if (!locationForegroundPermission?.granted) {
 		<Container />;
 	}
 
 	if (isLoadingLocation) {
-		//retornar loading
 		return <Container />;
 	}
 

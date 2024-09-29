@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -70,8 +71,8 @@ const TabNavigator = React.memo(() => {
 				tabBarInactiveTintColor: '#8e8e93',
 				tabBarShowLabel: false,
 				tabBarStyle: {
-					// display: route.name === HomeScreensNavigations.home ? 'flex' : 'none',
-					height: 80,
+					display: route.name === HomeScreensNavigations.home ? 'flex' : 'none',
+					height: Platform.OS === 'ios' ? 100 : 80,
 					borderTopLeftRadius: 30,
 					borderTopRightRadius: 30,
 					backgroundColor: '#fff',

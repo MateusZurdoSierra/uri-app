@@ -7,7 +7,7 @@ export const Container = styled.View`
 
 export const Content = styled.View`
 	flex: 1;
-	padding: 0px 16px;
+	padding: 0px 16px 16px 16px;
 `;
 
 export const Title = styled.Text`
@@ -17,4 +17,5 @@ export const Title = styled.Text`
 export const Subtitle = styled.Text`
 	font-family: ${({ theme }) => theme.font.regular};
 	font-size: 18px;
+	margin-bottom: 16px;
 `;
