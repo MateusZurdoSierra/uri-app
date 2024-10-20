@@ -18,6 +18,8 @@ import {
 	maskCellPhone,
 	maskCep,
 } from '../../../../../modules/global/utils/mask';
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
+import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
 
 const InformationForm: React.FC = () => {
 	const dispatch = useDispatch();
@@ -114,7 +116,10 @@ const InformationForm: React.FC = () => {
 				<Footer
 					textButton="Começar"
 					onPress={() => {
-						dispatch(OnboardingActions.person.statusPerson({ person }));
+						// dispatch(OnboardingActions.person.statusPerson({ person }));
+						Navigator.navigate(OnboardingScreensNavigations.addressScreen, {
+							person,
+						});
 					}}
 				/>
 			</KeyboardAvoidingView>

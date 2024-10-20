@@ -37,4 +37,4 @@ class HttpClient {
   }
 }
 
-export const apiClient = new HttpClient('https://uriapi.com');
+export const apiClient = new HttpClient('http://localhost');

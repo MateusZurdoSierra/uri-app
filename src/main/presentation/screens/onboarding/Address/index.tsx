@@ -1,67 +1,107 @@
 import React, { useState } from 'react';
-import { Container, Title, Subtitle, ContentText, RowContainer, NumberContainer, NeighborhoodContainer, } from './styles';
+
 import Input from '../../../../../modules/global/components/Input';
 import Footer from '../../../../../modules/global/components/Footer';
 
+import { KeyboardAvoidingView } from '../InformationForm/styles';
+
+import {
+	Container,
+	Title,
+	Subtitle,
+	ContentText,
+	RowContainer,
+	NumberContainer,
+	NeighborhoodContainer,
+	ScrollContainer,
+} from './styles';
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
+import {
+	OnboardingNavigatorParamList,
+	OnboardingScreensNavigations,
+} from '../../../../navigation/onboarding';
+import { RouteProp, useRoute } from '@react-navigation/native';
+
+type AddressRouteProps = RouteProp<
+	OnboardingNavigatorParamList,
+	typeof OnboardingScreensNavigations.addressScreen
+>;
+
 const AddressScreen: React.FC = () => {
-    const [zipCode, setZipCode] = useState<string>('');
-    const [street, setStreet] = useState<string>('');
-    const [number, setNumber] = useState<string>('');
-    const [neighborhood, setNeighborhood] = useState<string>('');
-    const [city, setCity] = useState<string>('');
+	const [zipCode, setZipCode] = useState<string>('');
+	const [street, setStreet] = useState<string>('');
+	const [number, setNumber] = useState<string>('');
+	const [neighborhood, setNeighborhood] = useState<string>('');
+	const [city, setCity] = useState<string>('');
 
-    return (
-        <Container>
-            <ContentText>
-                <Title>Endereço</Title>
-                <Subtitle>
-                    Para garantir a segurança da vizinhança e
-                    permitir seu acesso ao seu bairro dentro do Uri precisamos de algumas informações suas.
-                </Subtitle>
-            </ContentText>
+	const { person } = useRoute<AddressRouteProps>().params;
 
-            <Input
-                description="CEP"
-                value={zipCode}
-                onChangeText={number => setZipCode(number)}
-            />
+	return (
+		<Container>
+			<KeyboardAvoidingView>
+				<ScrollContainer>
+					<ContentText>
+						<Title>Endereço</Title>
+						<Subtitle>
+							Para garantir a segurança da vizinhança e permitir seu acesso ao
+							seu bairro dentro do Uri precisamos de algumas informações suas.
+						</Subtitle>
+					</ContentText>
 
-            <Input
-                description="Rua"
-                value={street}
-                onChangeText={text => setStreet(text)}
-            />
+					<Input
+						description="CEP"
+						value={zipCode}
+						onChangeText={number => setZipCode(number)}
+					/>
 
-            <RowContainer>
-                <NumberContainer>
-                    <Input
-                        description="Número"
-                        value={number}
-                        onChangeText={number => setNumber(number)}
-                    />
-                </NumberContainer>
+					<Input
+						description="Rua"
+						value={street}
+						onChangeText={text => setStreet(text)}
+					/>
 
-                <NeighborhoodContainer>
-                    <Input
-                        description="Bairro"
-                        value={neighborhood}
-                        onChangeText={text => setNeighborhood(text)}
-                    />
-                </NeighborhoodContainer>
-            </RowContainer>
+					<RowContainer>
+						<NumberContainer>
+							<Input
+								description="Número"
+								value={number}
+								onChangeText={number => setNumber(number)}
+							/>
+						</NumberContainer>
 
-            <Input
-                description="Cidade"
-                value={city}
-                onChangeText={text => setCity(text)}
-            />
+						<NeighborhoodContainer>
+							<Input
+								description="Bairro"
+								value={neighborhood}
+								onChangeText={text => setNeighborhood(text)}
+							/>
+						</NeighborhoodContainer>
+					</RowContainer>
 
-            <Footer
-                textButton="Proximo"
-                onPress={() => { }}
-            />
-        </Container>
-    );
+					<Input
+						description="Cidade"
+						value={city}
+						onChangeText={text => setCity(text)}
+					/>
+				</ScrollContainer>
+				<Footer
+					textButton="Proximo"
+					onPress={() => {
+						Navigator.navigate(OnboardingScreensNavigations.password, {
+							person,
+							address: {
+								zipCode,
+								street,
+								number,
+								neighborhood,
+								city,
+							},
+						});
+					}}
+				/>
+			</KeyboardAvoidingView>
+		</Container>
+	);
 };
 
 export default AddressScreen;

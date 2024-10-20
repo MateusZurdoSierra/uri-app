@@ -15,6 +15,8 @@ import FirstAccess from '../../presentation/screens/onboarding/InformationForm';
 import Password from '../../presentation/screens/onboarding/Password';
 import ValidateDocuments from '../../presentation/screens/onboarding/ValidateDocuments';
 
+import { PersonProps } from '../../redux/onboarding/reducers/person-reducer';
+
 export enum OnboardingScreensNavigations {
 	informationForm = 'InformationFormScreen',
 	beAnAmbassador = 'BeAnAmbassadorScreen',
@@ -31,9 +33,18 @@ export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.informationForm]: undefined;
 	[OnboardingScreensNavigations.beAnAmbassador]: undefined;
 	[OnboardingScreensNavigations.whatIsAmbassador]: undefined;
-	[OnboardingScreensNavigations.password]: undefined;
-	[OnboardingScreensNavigations.addressScreen]: undefined;
-	[OnboardingScreensNavigations.confirmData]: undefined;
+	[OnboardingScreensNavigations.addressScreen]: {
+		person: PersonProps
+	};
+	[OnboardingScreensNavigations.password]: {
+		person: PersonProps,
+		address: any,
+	};
+	[OnboardingScreensNavigations.confirmData]: {
+		person: PersonProps,
+		address: any,
+		password: string;
+	};
 	[OnboardingScreensNavigations.validationDocuments]: undefined;
 	[OnboardingScreensNavigations.captureDocument]: undefined;
 	[OnboardingScreensNavigations.confirmLocation]: undefined;

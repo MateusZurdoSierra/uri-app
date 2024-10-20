@@ -1,8 +1,30 @@
 import React, { useState } from 'react';
+import { RouteProp, useRoute } from '@react-navigation/native';
 
-import { Container, ContentText, Label, Subtitle, Title } from './styles';
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
+
 import Input from '../../../../../modules/global/components/Input';
 import Footer from '../../../../../modules/global/components/Footer';
+import { KeyboardAvoidingView } from '../InformationForm/styles';
+
+import {
+	OnboardingNavigatorParamList,
+	OnboardingScreensNavigations,
+} from '../../../../navigation/onboarding';
+
+import {
+	Container,
+	ContentText,
+	Label,
+	ScrollContainer,
+	Subtitle,
+	Title,
+} from './styles';
+
+type PasswordRouteProps = RouteProp<
+	OnboardingNavigatorParamList,
+	typeof OnboardingScreensNavigations.password
+>;
 
 function handleValidatePassword(password: string) {
 	const validations = {
@@ -36,68 +58,81 @@ const Password: React.FC = () => {
 	const [isFocusedConfirmPassword, setIsFocusedConfirmPassword] =
 		useState(false);
 
-	const {
-		hasLowerCase,
-		hasNumber,
-		hasSpecialChar,
-		hasUpperCase,
-		isValid,
-		minLength,
-	} = handleValidatePassword(password);
+	const { person, address } = useRoute<PasswordRouteProps>().params;
+
+	const { hasLowerCase, hasNumber, hasSpecialChar, hasUpperCase, minLength } =
+		handleValidatePassword(password);
 
 	return (
 		<Container>
-			<ContentText>
-				<Title>Senha</Title>
-				<Subtitle>A sua senha deve conter:</Subtitle>
+			<KeyboardAvoidingView>
+				<ScrollContainer>
+					<ContentText>
+						<Title>Senha</Title>
+						<Subtitle>A sua senha deve conter:</Subtitle>
 
-				<Label style={{ color: validateColorLabel(minLength, password) }}>
-					Use pelo menos 8 caracteres
-				</Label>
+						<Label style={{ color: validateColorLabel(minLength, password) }}>
+							Use pelo menos 8 caracteres
+						</Label>
 
-				<Label
-					style={{
-						color: validateColorLabel(hasLowerCase && hasUpperCase, password),
-					}}>
-					Inclua letras maiúsculas e minúsculas
-				</Label>
+						<Label
+							style={{
+								color: validateColorLabel(
+									hasLowerCase && hasUpperCase,
+									password,
+								),
+							}}>
+							Inclua letras maiúsculas e minúsculas
+						</Label>
 
-				<Label style={{ color: validateColorLabel(hasNumber, password) }}>
-					Adicione números (0-9)
-				</Label>
+						<Label style={{ color: validateColorLabel(hasNumber, password) }}>
+							Adicione números (0-9)
+						</Label>
 
-				<Label style={{ color: validateColorLabel(hasSpecialChar, password) }}>
-					Use caracteres especiais como ! @ # $ %
-				</Label>
-			</ContentText>
+						<Label
+							style={{ color: validateColorLabel(hasSpecialChar, password) }}>
+							Use caracteres especiais como ! @ # $ %
+						</Label>
+					</ContentText>
 
-			<Input
-				value={isFocusedPassword ? '' : password}
-				description="Senha"
-				onFocus={() => {
-					setIsFocusedPassword(true);
-					setPassword('');
-				}}
-				onBlur={() => setIsFocusedPassword(false)}
-				onChangeText={password => {
-					setPassword(password);
-					handleValidatePassword(password);
-				}}
-			/>
-			<Input
-				value={isFocusedConfirmPassword ? '' : confirmPassword}
-				description="Confirme a sua senha"
-				onFocus={() => {
-					setIsFocusedConfirmPassword(true);
-					setConfirmPassword('');
-				}}
-				onBlur={() => setIsFocusedConfirmPassword(false)}
-				onChangeText={confirmPassword => {
-					setConfirmPassword(confirmPassword);
-				}}
-			/>
+					<Input
+						value={isFocusedPassword ? '' : password}
+						description="Senha"
+						onFocus={() => {
+							setIsFocusedPassword(true);
+							setPassword('');
+						}}
+						onBlur={() => setIsFocusedPassword(false)}
+						onChangeText={password => {
+							setPassword(password);
+							handleValidatePassword(password);
+						}}
+					/>
+					<Input
+						value={isFocusedConfirmPassword ? '' : confirmPassword}
+						description="Confirme a sua senha"
+						onFocus={() => {
+							setIsFocusedConfirmPassword(true);
+							setConfirmPassword('');
+						}}
+						onBlur={() => setIsFocusedConfirmPassword(false)}
+						onChangeText={confirmPassword => {
+							setConfirmPassword(confirmPassword);
+						}}
+					/>
+				</ScrollContainer>
 
-			<Footer textButton="Próximo" onPress={() => {}} />
+				<Footer
+					textButton="Próximo"
+					onPress={() => {
+						Navigator.navigate(OnboardingScreensNavigations.confirmData, {
+							person,
+							address,
+							password,
+						});
+					}}
+				/>
+			</KeyboardAvoidingView>
 		</Container>
 	);
 };

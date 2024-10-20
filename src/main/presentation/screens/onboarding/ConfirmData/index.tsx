@@ -2,12 +2,25 @@ import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
-import { Container, Content, Description, Title } from './styles';
+import CustomBannerItem from '../../../../../modules/global/components/CustomBannerItem';
 import Illustration from '../../../../../modules/global/components/Illustration';
 import Footer from '../../../../../modules/global/components/Footer';
-import CustomBannerItem from '../../../../../modules/global/components/CustomBannerItem';
+
+import { Container, Content, Description, Title } from './styles';
+import { RouteProp, useRoute } from '@react-navigation/native';
+import {
+	OnboardingNavigatorParamList,
+	OnboardingScreensNavigations,
+} from '../../../../navigation/onboarding';
+
+type ConfirmDataRouteProps = RouteProp<
+	OnboardingNavigatorParamList,
+	typeof OnboardingScreensNavigations.confirmData
+>;
 
 const ConfirmData: React.FC = () => {
+	const {person, address, password} = useRoute<ConfirmDataRouteProps>().params;
+	console.tron.log(person, address, password);
 	return (
 		<Container>
 			<Content>

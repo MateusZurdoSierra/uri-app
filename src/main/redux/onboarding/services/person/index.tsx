@@ -1,3 +1,4 @@
+import { apiClient } from '../../../../../infra/api';
 import { personFactory } from './person-factory';
 import { PersonServiceProtocol, PersonResponse } from './types';
 
@@ -20,9 +21,9 @@ export const PersonServices: PersonServiceProtocol = {
 			pessoa: person,
 		};
 
-		// const response = await apiClient.post<PersonResponse>('/pessoa/status', bodyParams);
+		const response = await apiClient.post<PersonResponse>('/api/neighbor', bodyParams);
 
-		const responseFactory = personFactory(mockReturnPersonStatus.data)
+		const responseFactory = personFactory(response.data)
 
 		return responseFactory;
 	},
