@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { RouteProp, useRoute } from '@react-navigation/native';
 
 import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
 
@@ -8,7 +7,6 @@ import Footer from '../../../../../modules/global/components/Footer';
 import { KeyboardAvoidingView } from '../InformationForm/styles';
 
 import {
-	OnboardingNavigatorParamList,
 	OnboardingScreensNavigations,
 } from '../../../../navigation/onboarding';
 
@@ -20,11 +18,6 @@ import {
 	Subtitle,
 	Title,
 } from './styles';
-
-type PasswordRouteProps = RouteProp<
-	OnboardingNavigatorParamList,
-	typeof OnboardingScreensNavigations.password
->;
 
 function handleValidatePassword(password: string) {
 	const validations = {
@@ -57,8 +50,6 @@ const Password: React.FC = () => {
 	);
 	const [isFocusedConfirmPassword, setIsFocusedConfirmPassword] =
 		useState(false);
-
-	const { person, address } = useRoute<PasswordRouteProps>().params;
 
 	const { hasLowerCase, hasNumber, hasSpecialChar, hasUpperCase, minLength } =
 		handleValidatePassword(password);
@@ -126,8 +117,6 @@ const Password: React.FC = () => {
 					textButton="Próximo"
 					onPress={() => {
 						Navigator.navigate(OnboardingScreensNavigations.confirmData, {
-							person,
-							address,
 							password,
 						});
 					}}

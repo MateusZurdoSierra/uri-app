@@ -33,13 +33,8 @@ export type OnboardingNavigatorParamList = {
 	[OnboardingScreensNavigations.informationForm]: undefined;
 	[OnboardingScreensNavigations.beAnAmbassador]: undefined;
 	[OnboardingScreensNavigations.whatIsAmbassador]: undefined;
-	[OnboardingScreensNavigations.addressScreen]: {
-		person: PersonProps
-	};
-	[OnboardingScreensNavigations.password]: {
-		person: PersonProps,
-		address: any,
-	};
+	[OnboardingScreensNavigations.addressScreen]: undefined;
+	[OnboardingScreensNavigations.password]: undefined;
 	[OnboardingScreensNavigations.confirmData]: {
 		person: PersonProps,
 		address: any,

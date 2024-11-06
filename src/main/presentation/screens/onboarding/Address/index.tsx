@@ -3,7 +3,14 @@ import React, { useState } from 'react';
 import Input from '../../../../../modules/global/components/Input';
 import Footer from '../../../../../modules/global/components/Footer';
 
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
+import { OnboardingActions } from '../../../../redux/onboarding/reducers';
 import { KeyboardAvoidingView } from '../InformationForm/styles';
+import { useDispatch } from 'react-redux';
+
+import {
+	OnboardingScreensNavigations,
+} from '../../../../navigation/onboarding';
 
 import {
 	Container,
@@ -15,26 +22,22 @@ import {
 	NeighborhoodContainer,
 	ScrollContainer,
 } from './styles';
-import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
-import {
-	OnboardingNavigatorParamList,
-	OnboardingScreensNavigations,
-} from '../../../../navigation/onboarding';
-import { RouteProp, useRoute } from '@react-navigation/native';
-
-type AddressRouteProps = RouteProp<
-	OnboardingNavigatorParamList,
-	typeof OnboardingScreensNavigations.addressScreen
->;
 
 const AddressScreen: React.FC = () => {
-	const [zipCode, setZipCode] = useState<string>('');
-	const [street, setStreet] = useState<string>('');
-	const [number, setNumber] = useState<string>('');
-	const [neighborhood, setNeighborhood] = useState<string>('');
-	const [city, setCity] = useState<string>('');
+	const dispatch = useDispatch();
 
-	const { person } = useRoute<AddressRouteProps>().params;
+	const [address, setAddress] = useState({
+		zipCode: '',
+		street: '',
+		number: '',
+		neighborhood: '',
+		city: '',
+	});
+
+	const handleNavigateToPasswordScreen = () => {
+		dispatch(OnboardingActions.stepPersonData.updateAddress(address));
+		Navigator.navigate(OnboardingScreensNavigations.password);
+	};
 
 	return (
 		<Container>
@@ -50,53 +53,48 @@ const AddressScreen: React.FC = () => {
 
 					<Input
 						description="CEP"
-						value={zipCode}
-						onChangeText={number => setZipCode(number)}
+						value={address.zipCode}
+						onChangeText={number => setAddress({ ...address, zipCode: number })}
 					/>
 
 					<Input
 						description="Rua"
-						value={street}
-						onChangeText={text => setStreet(text)}
+						value={address.street}
+						onChangeText={street => setAddress({ ...address, street: street })}
 					/>
 
 					<RowContainer>
 						<NumberContainer>
 							<Input
 								description="Número"
-								value={number}
-								onChangeText={number => setNumber(number)}
+								value={address.number}
+								onChangeText={number =>
+									setAddress({ ...address, number: number })
+								}
 							/>
 						</NumberContainer>
 
 						<NeighborhoodContainer>
 							<Input
 								description="Bairro"
-								value={neighborhood}
-								onChangeText={text => setNeighborhood(text)}
+								value={address.neighborhood}
+								onChangeText={neighborhood =>
+									setAddress({ ...address, neighborhood: neighborhood })
+								}
 							/>
 						</NeighborhoodContainer>
 					</RowContainer>
 
 					<Input
 						description="Cidade"
-						value={city}
-						onChangeText={text => setCity(text)}
+						value={address.city}
+						onChangeText={city => setAddress({ ...address, city: city })}
 					/>
 				</ScrollContainer>
 				<Footer
 					textButton="Proximo"
 					onPress={() => {
-						Navigator.navigate(OnboardingScreensNavigations.password, {
-							person,
-							address: {
-								zipCode,
-								street,
-								number,
-								neighborhood,
-								city,
-							},
-						});
+						handleNavigateToPasswordScreen();
 					}}
 				/>
 			</KeyboardAvoidingView>
