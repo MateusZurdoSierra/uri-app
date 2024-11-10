@@ -7,20 +7,14 @@ import Illustration from '../../../../../modules/global/components/Illustration'
 import Footer from '../../../../../modules/global/components/Footer';
 
 import { Container, Content, Description, Title } from './styles';
-import { RouteProp, useRoute } from '@react-navigation/native';
-import {
-	OnboardingNavigatorParamList,
-	OnboardingScreensNavigations,
-} from '../../../../navigation/onboarding';
-
-type ConfirmDataRouteProps = RouteProp<
-	OnboardingNavigatorParamList,
-	typeof OnboardingScreensNavigations.confirmData
->;
+import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
 
 const ConfirmData: React.FC = () => {
-	const {person, address, password} = useRoute<ConfirmDataRouteProps>().params;
-	console.tron.log(person, address, password);
+	const handleNavigateToCaptureDocumentScreen = () => {
+		Navigator.navigate(OnboardingScreensNavigations.captureDocument);
+	};
+
 	return (
 		<Container>
 			<Content>
@@ -49,7 +43,10 @@ const ConfirmData: React.FC = () => {
 				/>
 			</Content>
 
-			<Footer textButton={'Começar'} onPress={() => {}} />
+			<Footer
+				textButton={'Começar'}
+				onPress={() => handleNavigateToCaptureDocumentScreen()}
+			/>
 		</Container>
 	);
 };

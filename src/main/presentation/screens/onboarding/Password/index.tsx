@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 
-import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
-
 import Input from '../../../../../modules/global/components/Input';
 import Footer from '../../../../../modules/global/components/Footer';
 import { KeyboardAvoidingView } from '../InformationForm/styles';
 
-import {
-	OnboardingScreensNavigations,
-} from '../../../../navigation/onboarding';
+import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
+import { OnboardingActions } from '../../../../redux/onboarding/reducers';
+import { useDispatch } from 'react-redux';
 
 import {
 	Container,
@@ -43,6 +42,8 @@ function validateColorLabel(isValid: boolean, password: string) {
 }
 
 const Password: React.FC = () => {
+	const dispatch = useDispatch();
+
 	const [password, setPassword] = useState('Digite a sua senha');
 	const [isFocusedPassword, setIsFocusedPassword] = useState(false);
 	const [confirmPassword, setConfirmPassword] = useState(
@@ -53,6 +54,11 @@ const Password: React.FC = () => {
 
 	const { hasLowerCase, hasNumber, hasSpecialChar, hasUpperCase, minLength } =
 		handleValidatePassword(password);
+
+	const handleNavigateToDataConfirmScreen = () => {
+		dispatch(OnboardingActions.stepPersonData.updatePassword(password));
+		Navigator.navigate(OnboardingScreensNavigations.confirmData);
+	};
 
 	return (
 		<Container>
@@ -115,11 +121,7 @@ const Password: React.FC = () => {
 
 				<Footer
 					textButton="Próximo"
-					onPress={() => {
-						Navigator.navigate(OnboardingScreensNavigations.confirmData, {
-							password,
-						});
-					}}
+					onPress={() => handleNavigateToDataConfirmScreen()}
 				/>
 			</KeyboardAvoidingView>
 		</Container>
