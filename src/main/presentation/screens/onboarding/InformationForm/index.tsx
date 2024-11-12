@@ -38,6 +38,14 @@ const InformationForm: React.FC = () => {
 		zipCode: 'Digite o CEP da sua rua',
 	});
 
+	const handleStartButton = () => {
+		dispatch(OnboardingActions.person.statusPerson({ person }));
+
+		Navigator.navigate(OnboardingScreensNavigations.addressScreen, {
+			person,
+		});
+	}
+
 	return (
 		<Container>
 			<KeyboardAvoidingView>
@@ -115,12 +123,7 @@ const InformationForm: React.FC = () => {
 				</ScrollContainer>
 				<Footer
 					textButton="Começar"
-					onPress={() => {
-						// dispatch(OnboardingActions.person.statusPerson({ person }));
-						Navigator.navigate(OnboardingScreensNavigations.addressScreen, {
-							person,
-						});
-					}}
+					onPress={() => handleStartButton()}
 				/>
 			</KeyboardAvoidingView>
 		</Container>
