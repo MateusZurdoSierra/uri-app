@@ -32,6 +32,15 @@ const onboardingPersonSlice = createSlice({
 			state.error = null;
 			state.person = action.payload.person;
 		},
+		statusPersonSuccess: (state, action: PersonPayload) => {
+			state.loading = false;
+			state.error = null;
+			state.person = action.payload.person;
+		},
+		statusPersonFailure: (state, action: PayloadAction<string>) => {
+			state.loading = false;
+			state.error = action.payload;
+		},
 	},
 });
 

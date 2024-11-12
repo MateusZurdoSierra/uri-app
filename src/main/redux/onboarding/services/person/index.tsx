@@ -1,23 +1,32 @@
 import { apiClient } from '../../../../../infra/api';
-import { personFactory } from './person-factory';
-import { PersonServiceProtocol, PersonResponse } from './types';
+import { PersonServiceProtocol, FetchPersonResponse } from './types';
+
+const mockReturnApi = {
+	data: {
+		name: 'Marcos Batochio',
+		phone: '14998219848',
+		email: 'Batochio@teste.com',
+		cep: '18860000',
+		registered_email: false,
+		valid_cep: true,
+		registered_cep: true,
+	},
+};
 
 export const PersonServices: PersonServiceProtocol = {
-	async fetchStatusPerson({ person }): Promise<PersonResponse> {
-		const bodyParams = {
-			name: person.name,
-			phone: person.phone,
-			email: person.email,
-			cep: person.zipCode,
-		};
+	async fetchStatusPerson({ person }): Promise<FetchPersonResponse> {
+		// const bodyParams = {
+		// 	name: person.name,
+		// 	phone: person.phone,
+		// 	email: person.email,
+		// 	cep: person.zipCode,
+		// };
 
-		const response = await apiClient.post<PersonResponse>(
-			'/api/ambassador',
-			bodyParams,
-		);
+		// const response = await apiClient.get<PersonResponse>(
+		// 	'/api/neighbor',
+		// 	bodyParams,
+		// );
 
-		const responseFactory = personFactory(response.data);
-
-		return responseFactory;
+		return mockReturnApi.data;
 	},
 };

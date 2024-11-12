@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 
 import { PersonProps } from '../../../../../main/redux/onboarding/reducers/person-reducer';
 import { OnboardingActions } from '../../../../../main/redux/onboarding/reducers';
+import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
 import Footer from '../../../../../modules/global/components/Footer';
 import Input from '../../../../../modules/global/components/Input';
 import { useDispatch } from 'react-redux';
+
+import {
+	maskCellPhone,
+	maskCep,
+} from '../../../../../modules/global/utils/mask';
 
 import {
 	Container,
@@ -14,12 +21,6 @@ import {
 	ScrollContainer,
 	KeyboardAvoidingView,
 } from './styles';
-import {
-	maskCellPhone,
-	maskCep,
-} from '../../../../../modules/global/utils/mask';
-import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
-import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
 
 const InformationForm: React.FC = () => {
 	const dispatch = useDispatch();
@@ -40,11 +41,7 @@ const InformationForm: React.FC = () => {
 
 	const handleStartButton = () => {
 		dispatch(OnboardingActions.person.statusPerson({ person }));
-
-		Navigator.navigate(OnboardingScreensNavigations.addressScreen, {
-			person,
-		});
-	}
+	};
 
 	return (
 		<Container>
@@ -121,10 +118,7 @@ const InformationForm: React.FC = () => {
 						}
 					/>
 				</ScrollContainer>
-				<Footer
-					textButton="Começar"
-					onPress={() => handleStartButton()}
-				/>
+				<Footer textButton="Começar" onPress={() => handleStartButton()} />
 			</KeyboardAvoidingView>
 		</Container>
 	);

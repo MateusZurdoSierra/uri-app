@@ -1,23 +1,45 @@
-import { call, takeLatest } from 'redux-saga/effects';
-import { OnboardingActions } from '../../reducers';
-import { PersonPayload } from '../../reducers/person-reducer';
-import { PersonServices } from '../../services/person';
-import { PersonResponse } from '../../services/person/types';
+import { call, put, takeLatest } from 'redux-saga/effects';
+
 import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
+import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
+import { FetchPersonResponse } from '../../services/person/types';
 import { ScreensNameRoot } from '../../../../navigation';
+import { PersonServices } from '../../services/person';
+import { OnboardingActions } from '../../reducers';
+
+import {
+	OnboardingPersonActions,
+	PersonPayload,
+} from '../../reducers/person-reducer';
 
 export function* statusPerson({ payload: { person } }: PersonPayload) {
 	try {
-		const response: PersonResponse = yield call(
+		const response: FetchPersonResponse = yield call(
 			PersonServices.fetchStatusPerson,
 			{ person },
 		);
 
-		if (response.hasAccount) {
+		const userHasAccount = response.registered_email;
+
+		if (userHasAccount) {
 			yield Navigator.navigate(ScreensNameRoot.auth);
+			return;
 		}
-	} catch (error) {
-		console.log(error);
+
+		yield Navigator.navigate(OnboardingScreensNavigations.addressScreen);
+
+		yield put(
+			OnboardingPersonActions.statusPersonSuccess({
+				person: {
+					email: response.email,
+					name: response.name,
+					phone: response.phone,
+					zipCode: response.cep,
+				},
+			}),
+		);
+	} catch (error: any) {
+		yield put(OnboardingPersonActions.statusPersonFailure(error.message));
 	}
 }
 
