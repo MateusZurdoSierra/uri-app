@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 
 import Input from '../../../../../modules/global/components/Input';
 import Footer from '../../../../../modules/global/components/Footer';
-import { KeyboardAvoidingView } from '../InformationForm/styles';
+import { KeyboardAvoidingView } from '../InitialInformation/styles';
 
 import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
 import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
 import { OnboardingActions } from '../../../../redux/onboarding/reducers';
+import { useValidatePassword } from './useValidatePassword';
 import { useDispatch } from 'react-redux';
 
 import {
@@ -18,39 +19,20 @@ import {
 	Title,
 } from './styles';
 
-function handleValidatePassword(password: string) {
-	const validations = {
-		minLength: password.length >= 8,
-		hasLowerCase: /[a-z]/.test(password),
-		hasUpperCase: /[A-Z]/.test(password),
-		hasNumber: /\d/.test(password),
-		hasSpecialChar: /[\W_]/.test(password),
-	};
-
-	const isValid = Object.values(validations).every(Boolean);
-
-	return { isValid, ...validations };
-}
-
-function validateColorLabel(isValid: boolean, password: string) {
-	if (password === '' || password === 'Digite a sua senha') return 'black';
-
-	if (isValid) {
-		return 'green';
-	}
-	return 'red';
-}
-
 const Password: React.FC = () => {
 	const dispatch = useDispatch();
 
 	const [password, setPassword] = useState('Digite a sua senha');
-	const [isFocusedPassword, setIsFocusedPassword] = useState(false);
 	const [confirmPassword, setConfirmPassword] = useState(
 		'Confirme a sua senha',
 	);
-	const [isFocusedConfirmPassword, setIsFocusedConfirmPassword] =
-		useState(false);
+
+	const [inputSelected, setInputSelected] = useState({
+		password: false,
+		confirmPassword: false,
+	});
+
+	const { handleValidatePassword, validateColorLabel } = useValidatePassword();
 
 	const { hasLowerCase, hasNumber, hasSpecialChar, hasUpperCase, minLength } =
 		handleValidatePassword(password);
@@ -93,26 +75,32 @@ const Password: React.FC = () => {
 					</ContentText>
 
 					<Input
-						value={isFocusedPassword ? '' : password}
+						value={password}
 						description="Senha"
+						selected={inputSelected.password}
 						onFocus={() => {
-							setIsFocusedPassword(true);
+							setInputSelected({ ...inputSelected, password: true });
 							setPassword('');
 						}}
-						onBlur={() => setIsFocusedPassword(false)}
+						onBlur={() =>
+							setInputSelected({ ...inputSelected, password: false })
+						}
 						onChangeText={password => {
 							setPassword(password);
 							handleValidatePassword(password);
 						}}
 					/>
 					<Input
-						value={isFocusedConfirmPassword ? '' : confirmPassword}
+						value={confirmPassword}
 						description="Confirme a sua senha"
+						selected={inputSelected.confirmPassword}
 						onFocus={() => {
-							setIsFocusedConfirmPassword(true);
+							setInputSelected({ ...inputSelected, confirmPassword: true });
 							setConfirmPassword('');
 						}}
-						onBlur={() => setIsFocusedConfirmPassword(false)}
+						onBlur={() =>
+							setInputSelected({ ...inputSelected, confirmPassword: false })
+						}
 						onChangeText={confirmPassword => {
 							setConfirmPassword(confirmPassword);
 						}}

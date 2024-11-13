@@ -8,7 +8,7 @@ type StyleProps = {
 export const Container = styled.View<StyleProps>`
 	height: auto;
 	width: 100%;
-	padding: 8px;
+	padding: 16px;
 
 	margin-top: ${({ marginTop }) => marginTop ?? 0}px;
 	margin-bottom: ${({marginBottom}) => marginBottom ?? 0}px;

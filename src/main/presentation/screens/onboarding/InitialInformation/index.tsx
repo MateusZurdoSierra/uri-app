@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 
-import { PersonProps } from '../../../../../main/redux/onboarding/reducers/person-reducer';
-import { OnboardingActions } from '../../../../../main/redux/onboarding/reducers';
-import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
-import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
+import { PersonProps } from '../../../../redux/onboarding/reducers/person-reducer';
+import { OnboardingActions } from '../../../../redux/onboarding/reducers';
 import Footer from '../../../../../modules/global/components/Footer';
 import Input from '../../../../../modules/global/components/Input';
 import { useDispatch } from 'react-redux';
@@ -22,7 +20,7 @@ import {
 	KeyboardAvoidingView,
 } from './styles';
 
-const InformationForm: React.FC = () => {
+const InitialInformation: React.FC = () => {
 	const dispatch = useDispatch();
 
 	const [inputSelected, setInputSelected] = useState({
@@ -124,4 +122,4 @@ const InformationForm: React.FC = () => {
 	);
 };
 
-export default InformationForm;
+export default InitialInformation;

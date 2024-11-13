@@ -5,6 +5,8 @@ import { View } from 'react-native';
 
 import TemplateInstructions from '../../../../../modules/global/components/Templates/Template.Instructions';
 import ButtonCapture from '../../../../../modules/global/components/ButtonCapture';
+import { OnboardingScreensNavigations } from '../../../../navigation/onboarding';
+import { Navigator } from '../../../../../modules/global/utils/rootNavigations';
 import Mask from './Mask';
 
 import {
@@ -19,6 +21,7 @@ import {
 	Title,
 	TouchableIcon,
 } from './styles';
+
 
 const CaptureDocument: React.FC = () => {
 	const [permission, requestPermission] = useCameraPermissions();
@@ -37,6 +40,10 @@ const CaptureDocument: React.FC = () => {
 				onPress={requestPermission}
 			/>
 		);
+	}
+
+	const handleNavigationConfirmLocation = () => {
+		Navigator.navigate(OnboardingScreensNavigations.confirmLocation);
 	}
 
 	return (
@@ -58,7 +65,7 @@ const CaptureDocument: React.FC = () => {
 
 				<ContentButtons>
 					<ButtonsRow>
-						<ButtonCapture onPress={() => {}} />
+						<ButtonCapture onPress={() => handleNavigationConfirmLocation()} />
 
 						<ContentRightIcon>
 							<TouchableIcon onPress={() => {}}>

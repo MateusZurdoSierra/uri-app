@@ -31,7 +31,7 @@ const ConfirmData: React.FC = () => {
 					description={
 						'Por favor, forneça uma foto de alta qualidade do seu RG ou CNH.'
 					}
-					icon={<FontAwesome name="vcard" size={30} color="gray" />}
+					icon={<FontAwesome name="vcard" size={30} color="#CACACA" />}
 					marginBottom={16}
 				/>
 				<CustomBannerItem
@@ -39,7 +39,7 @@ const ConfirmData: React.FC = () => {
 					description={
 						'Por favor, compartilhe sua localização atual e o comprovante de endereço.'
 					}
-					icon={<FontAwesome6 name="location-dot" size={30} color="gray" />}
+					icon={<FontAwesome6 name="location-dot" size={30} color="#CACACA" />}
 				/>
 			</Content>
 

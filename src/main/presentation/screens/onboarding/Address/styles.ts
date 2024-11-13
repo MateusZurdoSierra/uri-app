@@ -35,5 +35,5 @@ export const NumberContainer = styled.View`
 `;
 
 export const NeighborhoodContainer = styled.View`
-	width: 50%;
+	width: 60%;
 `;

@@ -13,7 +13,7 @@ interface ButtonCaptureProps {
 
 const ButtonCapture: React.FC<ButtonCaptureProps> = ({onPress}) => {
 	return (
-		<TouchableButton onPress={() => onPress}>
+		<TouchableButton onPress={() => onPress()}>
 			<ContentButtonCapture>
 				<ButtonCaptureSpace>
 					<ButtonCaptureCenter />

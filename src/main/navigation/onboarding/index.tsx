@@ -11,14 +11,12 @@ import WhatIsAmbassador from '../../presentation/screens/onboarding/Ambassador/W
 import CaptureDocument from '../../presentation/screens/onboarding/CaptureDocument';
 import ConfirmData from '../../presentation/screens/onboarding/ConfirmData';
 import ConfirmLocation from '../../presentation/screens/onboarding/ConfirmLocation';
-import FirstAccess from '../../presentation/screens/onboarding/InformationForm';
+import InitialInformation from '../../presentation/screens/onboarding/InitialInformation';
 import Password from '../../presentation/screens/onboarding/Password';
 import ValidateDocuments from '../../presentation/screens/onboarding/ValidateDocuments';
 
-import { PersonProps } from '../../redux/onboarding/reducers/person-reducer';
-
 export enum OnboardingScreensNavigations {
-	informationForm = 'InformationFormScreen',
+	initialInformation = 'InitialInformationScreen',
 	beAnAmbassador = 'BeAnAmbassadorScreen',
 	whatIsAmbassador = 'WhatIsAmbassador',
 	password = 'PasswordScreen',
@@ -30,7 +28,7 @@ export enum OnboardingScreensNavigations {
 }
 
 export type OnboardingNavigatorParamList = {
-	[OnboardingScreensNavigations.informationForm]: undefined;
+	[OnboardingScreensNavigations.initialInformation]: undefined;
 	[OnboardingScreensNavigations.beAnAmbassador]: undefined;
 	[OnboardingScreensNavigations.whatIsAmbassador]: undefined;
 	[OnboardingScreensNavigations.addressScreen]: undefined;
@@ -53,10 +51,10 @@ export default () => {
 				headerTitleAlign: 'center',
 				headerShown: false,
 			}}
-			initialRouteName={OnboardingScreensNavigations.informationForm}>
+			initialRouteName={OnboardingScreensNavigations.initialInformation}>
 			<OnboardingNavigator.Screen
-				name={OnboardingScreensNavigations.informationForm}
-				component={FirstAccess}
+				name={OnboardingScreensNavigations.initialInformation}
+				component={InitialInformation}
 				options={{ title: '' }}
 			/>
 			<OnboardingNavigator.Screen

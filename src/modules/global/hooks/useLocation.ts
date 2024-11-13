@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { getAddressLocation } from '../utils/getAddressLocation';
+
 import {
 	LocationAccuracy,
 	LocationObjectCoords,
@@ -5,14 +8,12 @@ import {
 	useForegroundPermissions,
 	watchPositionAsync,
 } from 'expo-location';
-import { useEffect, useState } from 'react';
-import { getAddressLocation } from '../utils/getAddressLocation';
 
 interface useLocationProtocol {
 	coordinates: LocationObjectCoords | null;
 	currentAddress: string | null;
 	isLoadingLocation: boolean;
-	locationForegroundPermission?: any; 
+	locationForegroundPermission?: any;
 }
 
 export function useLocation(): useLocationProtocol {

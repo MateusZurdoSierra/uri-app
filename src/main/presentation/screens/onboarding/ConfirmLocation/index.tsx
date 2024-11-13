@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
+import { useLocation } from '../../../../../modules/global/hooks/useLocation';
 import Footer from '../../../../../modules/global/components/Footer';
 
 import {
@@ -12,16 +14,16 @@ import {
 	Title,
 	TitleModal,
 } from './styles';
-import { useLocation } from '../../../../../modules/global/hooks/useLocation';
 
 const ConfirmLocation: React.FC = () => {
+	const [modalVisible, setModalVisible] = useState(true);
+
 	const {
 		coordinates,
 		currentAddress,
 		isLoadingLocation,
 		locationForegroundPermission,
 	} = useLocation();
-	const [modalVisible, setModalVisible] = useState(true);
 
 	if (!locationForegroundPermission?.granted) {
 		<Container />;
